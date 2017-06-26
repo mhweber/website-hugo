@@ -1,7 +1,7 @@
-baseurl = "https://username.github.io"
+baseurl = "https://mhweber.github.io"
 DefaultContentLanguage = "en"
 #DefaultContentLanguage = "ja"
-title = "Beautiful Hugo"
+title = "Marc Weber"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
 pygmentsUseClasses = true
@@ -10,8 +10,8 @@ pygmentCodeFences = true
 #googleAnalytics = "XXX"
 
 [Params]
-  subtitle = "Build a beautiful and simple website in minutes"
-  logo = "img/avatar-icon.png"
+  subtitle = "Geospatial Ruminations"
+  logo = "img/MeBiking.png"
   favicon = "img/favicon.ico"
   dateFormat = "January 2, 2006"
   commit = false
@@ -30,12 +30,12 @@ pygmentCodeFences = true
 #  desc = "Hexagon"
 
 [Author]
-  name = "Some Person"
-  email = "youremail@domain.com"
+  name = "Marc Weber"
+  email = "mweber36@gmail.com"
   facebook = "username"
   googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
-  github = "username"
-  twitter = "username"
+  github = "mhweber"
+  twitter = "marc_h_weber"
   reddit = "username"
   linkedin = "username"
   xing = "username"
