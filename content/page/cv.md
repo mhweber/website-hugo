@@ -1,21 +1,33 @@
 ---
-title: "CV"
+title: "Curriculum Vitae"
 disable_comments: true
 ---
 
-Full cv available [here](/pdf/cv.pdf).
-
-## Current Position
-
-I am currently a postdoc associate in the [Department of Wildlife Ecology and Conservation](http://wec.ufl.edu/) at the [University of FLorida](http://www.ufl.edu/).
+PDF version available [here](/pdf/cv.pdf).
 
 ## Education
 
 - 1998 -- 2001, M.S., Geography, Department of Geography, Portland State University, Portland, OR.  
 *Area of Emphasis* Biogeography, Geospatial Sciences, Landscape Eclolgy, GIS, Forest Ecology
-- 2013 -- 2016, M.S., Biometry, Department of Statistics, University of Wisconsin-Madison.  
-- 2008 -- 2011, M.S., School of Life Science, Sun Yat-sen University, China.  
-- 2004 -- 2008, B.A., School of Life Science, Yunnan University, China.
+- 1988 -- 1992, B.A., University of Oregon, Eugene, OR.  
+*Major* English Literature
+*Minor* Environmental Studies
+
+## Additional Courses and Training
+- 2017, Introduction to Python for Data Science, DataCamp
+- 2016, SQL and R - Introduction to Database Queries, Statistics.com
+- 2016, Developing Data Products, Coursera
+- 2015, The Data Scientist's Toolbox, Coursera
+- 2015, Exploratory Data Analysis, Coursera
+- 2012, Visualization in R with ggplot2
+- 2008, Introduction to PHP and MySQL, Oregon State University Extended Campus
+- 2008, Introduction to Geoprocessing Scripts Using Python, ESRI Instructor-led Course
+- 2007, Learning Python Week-Long In-Person Class, Mark Lutz (author of Learning Python and Python Programming)
+
+## Current Position
+
+I work as a geographer / spatial analyst, providing geospatial support for the EPA National Aquatic Resource Surveys (NARS) and for work in building national predictive models and maps of watershed integrity and aquatic condition. I develop approaches primarily in Python and R, as well as using ArcGIS, to process landscape data for spatial designs and modeling, and to interact with the National Hydrography Dataset Plus (NHDPlus). The NARS support work involves providing the spatial framework and geospatial analysis support for the national lakes, rivers and streams, wetlands, and coastal surveys. I have active collaborations with colleagues from other EPA labs (NHEERL AED, MED, GED),divisions (NERL, NCEA), offices and regions (OW, Regions 6 and 7), as well as other agencies and universites (USGS, Utah State, Desert Research Institute). I do extensive work with open source GIS tools in both R and Python, am interested in methods for spatial data visualization using tools such as Bokeh in Python and R Shiny in R, and I am a user and proponent of reproducible research techniques using Git / R Markdown / knitr/ Python notebooks.
+
 
 <!-- ## Research Interests
 
