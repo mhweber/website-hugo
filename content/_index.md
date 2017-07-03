@@ -1,2 +1,1 @@
-## Front Page Content
-`beautifulhugo` supports content on your front page. Edit `/content/_index.md` to change what appears here. Delete `/content/_index.md` if you don't want any content here.
+I'm a geographer whose work is focused on GIS and spatial analysis . I work primarily in R and Python using open source tools.  This blog serves primarily to share new tools, tips and techniques I've found or find interesting using open source spatial analysis approaches in R and Python.
