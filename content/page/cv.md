@@ -8,10 +8,40 @@ PDF version available [here](/pdf/cv.pdf).
 ## Education
 
 - 1998 -- 2001, M.S., Geography, Department of Geography, Portland State University, Portland, OR.  
-*Area of Emphasis* Biogeography, Geospatial Sciences, Landscape Eclolgy, GIS, Forest Ecology
+*Area of Emphasis*: Biogeography, Geospatial Sciences, Landscape Eclolgy, GIS, Forest Ecology
 - 1988 -- 1992, B.A., University of Oregon, Eugene, OR.  
-*Major* English Literature
-*Minor* Environmental Studies
+*Major*: English Literature
+*Minor*: Environmental Studies
+
+## Research and Work Experience
+
+**2008 -- Present: Spatial Analyst, US Environmental Protection Agency, Western Ecology Division, Corvallis, OR**
+
+- I work as a geographer / spatial analyst, providing geospatial support for the EPA National Aquatic Resource Surveys (NARS) and helping build national predictive models and maps of watershed integrity and aquatic condition. I develop approaches primarily in Python and R, as well as using ArcGIS, to process landscape data for spatial designs and modeling, and to interact with the National Hydrography Dataset Plus (NHDPlus). The NARS support work involves providing the spatial framework and geospatial analysis support for the national lakes, rivers and streams, wetlands, and coastal surveys. I have active collaborations with colleagues from other EPA labs (NHEERL AED, MED, GED),divisions (NERL, NCEA), offices and regions (OW, Regions 6 and 7), as well as other agencies and universites (USGS, Utah State, Desert Research Institute). I do extensive work with open source GIS tools in both R and Python, am interested in methods for spatial data visualization using tools such as Bokeh in Python and R Shiny in R, and I am a user and proponent of reproducible research techniques using Git / R Markdown / knitr/ Python notebooks.
+
+**2005 -- 2008: GIS Specialist, U.S. Forest Service, Rocky Mountain Research Station Fire Sciences Lab, Missoula, MT**
+
+- Worked on the USFS [Landfire](http://www.landfire.gov/) program on the fire regimes team.  Ran and modified fire / landscape simulation models (LANDSUM, VDDT), processed spatial data using scripting languages (Python and AML), and performed advanced spatial analysis on fire and fuels data using SQL, Python, VBA, and R.  Processed raster data using map algebra for analysis of national fire and fuels mapping products.  Interacted and worked closely with personnel from partner agencies such as USGS EROS data center and the Nature Conservancy.
+
+**2003 -- 2005: Biologist, U.S. Forest Service, Rocky  Mountain Research Station Fire Sciences Lab, Missoula, MT**
+
+- Managed research project examining historical fire regimes in Utah.  Work included planning, locating, installing and taking measurements at research plots using increment borers, chainsaws, gps unit and rangefinder, as well as using dendrochonology techniques and software (COFECHA, FHX2) for dating fire-scarred samples.  Processed, summarized, analyzed data and prepared reports on fire history data collected.  Performed spatial analysis and map production using ArcMap software and AML scripts.  Performed statistica analyses on data using SAS.
+
+**2001 -- 2003: Ecologist, U.S. Forest Service, Pacific Northwest Research Station Forestry Sciences Lab, Portland, OR**
+
+- Supervised field crew for the Forest Inventory and Analysis (FIA) program, and prepared field methods and summarized data during winter.  Performed database development in Access and Oracle of inventory plot data for Oregon, Washington, and California.  Work required advanced photo interpretation, plant identification, forest pathogen identification, and use of laser rangefinder, GPS, data logger, increment borer, and clinometer.  Prepared plot maps and performed spatial queries using ArcGIS, helped model forest mortality from plot data as part of a pilot study.
+
+**2000 -- 2003: Instructor, Portland Community College, Portland, OR**
+
+- Taught two 1 credit geography field courses each term, one on Mt. St. Helens and one on the Oregon High Desert.  Delivered day-long courses focusing on geography and natural history of the areas.  Developed course curriculum, supervised approximately 50 community college students on day long field classes, and graded student papers.
+
+**1999 -- 2001: Assistant Editor, Himalayan Research Bulletin, Portland State University, Portland, OR**
+
+- Managed layout and editing of international journal on geographic and cultural research on the Himalayas.  Performed journal layout using Adobe Pagemaker, Adobe Photoshop, and Adobe Illustrator software.  Performed general office management tasks such as updating membership, correspondence, billing and mailing.
+
+**1999: Research Assistant, Portland State University Department of Geography, Portland, OR**
+
+- Assisted in research project on tree-islands (kipukas) in lava flows at Newbarry Crater National Monument, examining fire history and insect outbreaks.  Collected tree increment cores, identified plants using plant keys, and measured fuel loading on sample plots.
 
 ## Additional Courses and Training
 - 2017, Introduction to Python for Data Science, DataCamp
@@ -24,20 +54,8 @@ PDF version available [here](/pdf/cv.pdf).
 - 2008, Introduction to Geoprocessing Scripts Using Python, ESRI Instructor-led Course
 - 2007, Learning Python Week-Long In-Person Class, Mark Lutz (author of Learning Python and Python Programming)
 
-## Current Position
-
-I work as a geographer / spatial analyst, providing geospatial support for the EPA National Aquatic Resource Surveys (NARS) and for work in building national predictive models and maps of watershed integrity and aquatic condition. I develop approaches primarily in Python and R, as well as using ArcGIS, to process landscape data for spatial designs and modeling, and to interact with the National Hydrography Dataset Plus (NHDPlus). The NARS support work involves providing the spatial framework and geospatial analysis support for the national lakes, rivers and streams, wetlands, and coastal surveys. I have active collaborations with colleagues from other EPA labs (NHEERL AED, MED, GED),divisions (NERL, NCEA), offices and regions (OW, Regions 6 and 7), as well as other agencies and universites (USGS, Utah State, Desert Research Institute). I do extensive work with open source GIS tools in both R and Python, am interested in methods for spatial data visualization using tools such as Bokeh in Python and R Shiny in R, and I am a user and proponent of reproducible research techniques using Git / R Markdown / knitr/ Python notebooks.
 
 
-<!-- ## Research Interests
-
-Plant community assembly (taxonomic, functional and phylogenetic), Diversity and ecosystem functioning, Network analysis, Species co-occurrence, Multi-level model, Global change. -->
-
-<!-- ## Academic Appointments
-
-- 2014 ~ 2015, Graduate Student Research Assistant, Department of Botany, University of Wisconsin-Madison.
-- 2011 ~ 2012, Graduate Student Research Assistant, Department of Botany, University of Wisconsin-Madison.
-- 2008 ~ 2011, Graduate Student Research Assistant, School of Life Science, State Key Laboratory of Biocontrol, Sun Yat-sen University, China. Thesis: Effects of leaf litter species evenness on decomposition rates. -->
 
 ## Publications
 
