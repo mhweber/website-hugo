@@ -1,1 +1,1 @@
-I'm a geographer whose work is focused on GIS and spatial analysis . I work primarily in R and Python using open source tools.  This blog serves primarily to share new tools, tips and techniques I've found or find interesting using open source spatial analysis approaches in R and Python.
+I'm a geographer whose work focuses on GIS and spatial analysis . I work primarily in R and Python using open source tools.  This blog serves primarily to share new tools, tips and techniques I've found or find interesting using open source spatial analysis approaches in R and Python.

@@ -1,6 +1,7 @@
 ---
 title: "Curriculum Vitae"
-disable_comments: true
+output: pdf_document
+disable_comments: yes
 ---
 
 PDF version available [here](/pdf/cv.pdf).
@@ -52,103 +53,138 @@ PDF version available [here](/pdf/cv.pdf).
 - 2012, Visualization in R with ggplot2
 - 2008, Introduction to PHP and MySQL, Oregon State University Extended Campus
 - 2008, Introduction to Geoprocessing Scripts Using Python, ESRI Instructor-led Course
+- 2008, Writing Advanced Geoprocessing Scripts Using Python, ESRI Instructor-led Course
+- 2007, Introduction to ArcGIS Server, ESRI Instructor-led Course
 - 2007, Learning Python Week-Long In-Person Class, Mark Lutz (author of Learning Python and Python Programming)
+- 2006, Learning ArcGIS 9 Spatial Analyst, ESRI Virtual Campus
+- 2006, ArcGIS GeoProcessing and the ModelBuilder, Kessler GIS
+- 2006, Skills for the GeoDatabase, Kessler GIS
+- 2005, Working With Rasters in ArcGIS 8, ESRI Virtual Campus
+- 2005, Introduction to SQL, Oregon State University E-Campus Course
+- 2003, SAS Programming 1: Essentials, SAS Institute
+
+## Research Products and Presentations
+
+### Peer Reviewed Articles
+
+Herlihy, A, J.Sifneos, G. Lomnicky, A. Nahlik, M. Kentula, T. Magee, **M. Weber** and A. Trebitz. In press. The response of wetland quality indicators to human disturbance indicators across the United States. Environmental Monitoring and ASsessment.
+
+Fox, E.W., R.A. Hill, S.G. Leibowitz, A.R. Olsen, D.Thornbrugh, and **M.H. Weber**. 2017. Assessing the accuracy and stability of variable selectioni methods for random forest modeling in ecology.  Environmental Monitoring and Assessment. 189(7) 
+
+Omernik, J., G. Griffith, R. Hughes, J. Glover, and **M. Weber**. 2017. How misapplication of the Hydrologic Unit Framework diminishes the meaning of watersheds. Environmental Management.
+
+    
+Omernik, J, S. Paulsen, G. Griffith, and **M. Weber**. 2016. Regional patterns of total nitrogen concentrations in the National Rivers and Streams Assessment. Journal of Soil and Water Conservation. 71(3): 167-181.
+  
+Leibowitz, S.G, R. Comeleo, P.J. Wigington, **M. Weber**, E. Sproles, and K. Sawicz. 2015. Hydrologic Landscape Characterization for the Pacific Northwest, USA. Journal of the American Water Resources Association. 52(2): 473-493.
+  
+Hill, R.A, **M. Weber**, S. Leibowitz, A. Olson, and D. Thornbrugh. 2015. The Stream-Catchment (StreamCat) Dataset: A Database of Watershed Metrics for the Conterminous United States. Journal of the American Water Resources Association. 52(1): 120-128.
+   
+Xue, J. V. Zartarian, B. Mintz, **M. Weber**, K. Bailey, and A. Geller. 2015. Modeling tribal exposures to methyl mercury from fish consumption. Science of the Total Environment. 533: 102-109.
+      
+Payton, Q.C., M. McManus, **M. Weber**, A. Olsen, and T. Kincaid. 2014. Micromap: A package for linked micromaps. Journal of Statistical Software. 63(2):.1-16.
+      
+Symanzik, J., D. Xiaotian, **M. Weber**, Q. Payton, and M. McManus. 2014.. Linked Micromap plots for South America – general design considerations and specific adjustments. Revista Colombiana de Estadistica. 37 (2):451-469.
+      
+Brooks, J.R., J. Gibson, S. Birks, **M. Weber**, K. Rodecap, and J. Stoddard. 2014. Stable isotope estimates of evaporation: inflow and water residence time for lakes across the United States as a tool for national lake water quality assessments. Limnology and Oceanography. 59(6): 2150-2165.
+  
+Peck, D. V., A. Olsen, **M. Weber**, S. Paulsen, C. Peterson, and S. Holdsworth. 2013. Survey design and extent estimates for the National Lakes Assessment. Freshwater Science. 32 (4): 1231-1245.
+      
+Hughes, R.M., P. Kaufmann, and **M. Weber**. 2010. National and regional comparisons between strahler order and stream size. Journal of the North American Benthological Society. 301(1): 103-121.
+      
+Brown, P., E. Heyerdahl, S. Kitchen, and **M. Weber**. 2008. Climate effects on historical fires (1630-1900) in Utah. International Journal of Wildland Fire. 17(1):28-39.
+      
+**Weber, M.**, K. Hadley, P. Frenzen, and J. Franklin. 2006. Forest development following mudflow deposition, Mount St. Helens, Washington. Canadian Journal of Forest Research. 36(2):437-449.
 
 
+### Chapters
 
+Frenzen, P.M., Hadley, K.S., Major, J.J., **Weber, M.H.**, Franklin, J.F., Hardison, J.H., and Stanton, S.M.  (2005). Geomorphic Change and Vegetation Development on the Muddy River Mudflow Deposit. Pages 75-91 in V.H. Dale, F. J. Swanson, and C.M. Crisafuli (eds.). Ecological Responses to the 1980 Eruption of Mount St Helens, Springer, New York, NY.
 
-## Publications
+## Software
+   
+Payton, Q., A.R. Olsen, **M. Weber**, M. McManus, and T. Kincaid  (2014). micromap: Linked Micromap Plots. Version 1.9.2  [CRAN](https://cran.r-project.org/web/packages/micromap/index.html) repo:  [GitHub](https://github.com/USEPA/R-micromap-package-development) 
 
-<ol reversed>
+## Presentations, Workshops and Panels
+      
+- **Weber, M** and B. Weinstein. [R-Fundamentals for Spatial Data and Advanced Visualization Techniques in R with Spatial Data](https://mhweber.github.io/gis_in_action_r_spatial/).  Day-long workshop for 2017 GIS in Action conference, Portland, OR. April 2017.
+   
+- **Weber, M.**, R. Hill, S. Leibowitz, A. Olsen, D. Thornbrugh, R. Debbout, and T. Larsen. The Stream-Catchment (StreamCat) dataset. USEPA Spring GIS Workgroup Mason-Hewitt Excellence in GIS nomination presentation. April 2016
+      
+- **Weber, M.** The SciPy Stack and Spatial Analysis.  Lightning Talk at USEPA Spring GIS Workgroup Meeting.  April 2016.
+      
+- Advancing US EPA Integration of Environmental and Information Sciences. Invited panelist.  Organizers: Rick Ziegler, Gerry Laniak, Allan Brookes. USEPA RTP Campus, RTP, NC.  Oct 2015.
+      
+- **Weber, M.** Creating Flexible Basins and Building the Stream-Catchment and Lake-Catchment Datsets.  Lightning Talk at USEPA Spring GIS Workgroup Meeting.  March 2015.
+      
+- **Weber, M.** Spatial Data Manipulation, Analysis and Visualization in R: The Basics.  Webinar for EPA ORD R User Group.  Feb 2015.
+      
+- McManus, M.and **M. Weber.** Spatial Analysis, Spatial Dta Analysis, and R. Webinar for EPA ORD Geospatial Sciences User Group.  March 2014.
+      
+- Frazier, **M., Weber**, M., and L. McCoy. R for Spatial Analysis.  One-Day Workshop for USEPA Western Ecology Division. June 2013
+      
+- **Weber, M.** Creating the Spatial Framework for National Aquatic Resource Surveys (NARS). The National Water Quality Monitoring Conference, Portland, OR. April 2012.
+  
+- **Weber, M.** Using R for Spatial Analysis.  Webinar for ORD Geospatial Sciences User Group. Sep 2011.
+      
+- **Weber, M.** Variation in Historical Fire Regimes Across an Elevation and Forest Gradient in Utah. Ecological Society of America 89th Annual Meeting. Portland, OR. August 2004.
+      
+- **Weber, M.** The 1980 Eruption of Mount St. Helens: Mudflows and Their Impact on Forest Dynamics. USFS Fire Sciences Laboratory Seminar Series. Missoula, MT. Feb 2004.
 
- <li> <b>Daijiang Li</b> and Anthony R. Ives. 2017. The statistical need to include phylogeny in trait-based analyses of community composition. <u><i>Methods in Ecology and Evolution</i></u>. In press. <a target="_blank" href="http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12767/abstract"><i class="fa fa-download"></i></a>
- <!-- doi: 10.1111/geb.12432 <a target="_blank" href="http://onlinelibrary.wiley.com/doi/10.1111/geb.12432/abstract"><i class="fa fa-download"></i></a><br> -->
- </li>
+## Posters
+   
+- **Weber, M.**, R. Hill, S. Leibowitz, A. Olsen, and D. Thornbrugh. Towards national mapping of aquatic condition: the Stream-Catchment (StreamCat) dataset. Association for Landscape Ecology Annual Meeting. Portland, OR. April 2015.
+      
+- Payton, Q., **M. Weber**, M. McManus, and A. Olsen. Linked Micromaps: Statistical Summaries in a Spatial Context.  The National Water Quality Monitoring Conference, Portland, OR. April 2012.
+      
+- **Weber, M.** and J. VanSickle. Stream ecological condition modeling at the reach and the Hydrologic Unit (HUC) scale. The National Map Conference, Lakewood, CO. May 2011.
+      
+- **Weber, M.** and J. VanSickle. Building spatially-explicit model predictions for ecological condition of streams in the  Pacific Northwest. The Association for Landscape Ecology Annual Meeting.  Portland, OR. 2011.
+  
+- **Weber, M.** Simulating Historic Fire Regimes for the LANDFIRE Project. The Association for Fire Ecology Annual Meeting, Fire in the Southwest Conference.  Tuscon, AZ. Jan 2008.
+      
+## Qualifications Memberships and Activities
 
-<li> <b>Daijiang Li</b> and Donald Waller. 2017. Fire exclusion and climate change interact to affect long-term changes in the functional composition of plant communities. <u><i>Diversity and Distributions</i></u>. 23: 496-506. <a target="_blank" href="http://onlinelibrary.wiley.com/doi/10.1111/ddi.12542/abstract"><i class="fa fa-download"></i></a><br> 
- </li>
+### Programming
 
-<li> <b>Daijiang Li</b>, Anthony R. Ives, and Donald Waller. 2017. Can functional traits account for phylogenetic signal in community composition? <u><i>New Phytologist</i></u>. 214: 607-618. <a target="_blank" href="http://onlinelibrary.wiley.com/doi/10.1111/nph.14397/abstract"><i class="fa fa-download"></i></a><br>
- </li>
+#### Python
+  
+- I've worked with Python extensively as an integral part of work since 2005.  I learned Python on the job working on the US Forest Service [Landfire](http://www.landfire.gov/) program where we used Python for most of our workflow scripts.  Additionally, I participated in a week-long Python immersion class in person with Mark Lutz, author of Programming Python and Learning Python, while working for the LANDFIRE program.  I've continued to develop my Python programming skills using both the ArcGIS ArcPy module as well as many open source spatial modules in Python, and most recently have begun using Python notebooks for reproducible research and Python modules such as Bokeh for data visualization.
+      
+#### R  
+  
+- I started learning R in 2003 and have spent a great deal of time working with R for spatial analysis.  I've taught several webinars and workshops on doing spatial analysis in R, and helped to author the micromap package for R.  As with Python, I'm very interested in reproducible research methods in R and write the majority of my R scripts as R markdown documents which I knit into html or pdf documents using the knitr package.  Additionaly, I've created most of my recent presentations and posters using some combination of knitr / LaTex / Beamer in R.
+  
+#### Web
+  
+- Up until last year I maintained the EPA Ecoregions website, performing routine updates and editing in html.  I know HTML, CSS, and some Javascript. I'm also familiar with and using GitHub pages, Hugo, and Jekyll for content manamement.  
+  
+  
+### Data Management and Analysis
+#### GIS
+  
+- I've used ESRI ArcGIS products extensively for work for the past 15 years since first learning GIS in graduate school.  I have expert level experience in using the ArcPy module in python and GIS scripting in Python, and additionally use a number of open source GIS modules in Python (fiona, rasterio, gdal, shapely, geopandas, georasters).  Additionally, I've used R for much of my spatial analysis in the past 6 years, and am very familiar with the typical R libraries for spatial analysis (sp, rgdal, rgeos, raster).
 
-<li> Kris Verheyen, Pieter De Frenne, ..., <b>Daijiang Li</b>, ..., Markus Bernhardt-Romermann. 2017. Combining biodiversity resurveys across regions to advance global change research. <u><i>Bioscience</i></u>. 67: 73-83. <a target="_blank" href="https://academic.oup.com/bioscience/article/67/1/73/2661833/Combining-Biodiversity-Resurveys-across-Regions-to#50671780"><i class="fa fa-download"></i></a><br>
- </li>
+#### Statistics
+  
+- I've taken several graduate level statistics courses, including multivariate statistics, and work closely with statisticians in my daily work.  I do all my statistical work in R currently and for the past several years, and have also used SAS, SPSS, and SigmaPlot.
+  
+### Data Science and Data Visualization
+  
+- Much of my daily work falls under the rubric of 'Data Science', and I use both R and Python for data management, data acquisition, data cleaning, and data transformation.  I've used the libraries and modules in both languages that lend themselves to data manament / data cleaning tasks, such as tidyr, dpyr, ggplot2, reshape2, plyr, and stringr in R and pandas, numpy, abd scipy.  I also use both R and Python for data visualization, using libraries such as plotly, RColorBrewer, choroplethr, micromap, ggplot2, leaflet, and shiny in R, and matplotlib, bokeh, seaborn, and ggplot.  I also use PostGreSQL / PostGIS for storing, manipulating and querying spatial data.
 
-<li> <b>Daijiang Li</b> and Donald Waller. 2016. Long-term shifts in the patterns and underlying processes of plant associations in Wisconsin forests. <u><i>Global Ecology and Biogeography</i></u>. 25: 516–526. <a target="_blank" href="http://onlinelibrary.wiley.com/doi/10.1111/geb.12432/abstract"><i class="fa fa-download"></i></a><br>
- </li>
+## Awards
 
-<li> <b>Daijiang Li</b> and Donald Waller. 2015. Drivers of observed biotic homogenization in pine barrens of central Wisconsin. <u><i>Ecology</i></u>. 96:1030–1041 <a target="_blank" href="http://www.esajournals.org/doi/abs/10.1890/14-0893.1"><i class="fa fa-download"></i></a><br> &nbsp; Media coverage: <a target="_blank" href="http://news.wisc.edu/23803">University of Wisconsin-Madison News</a>; also printed in <a target="_blank" href="http://www.sciencedaily.com/releases/2015/05/150526123833.htm">Science daily</a>, <a target="_blank" href="http://scienceblog.com/78554/starved-fire-wisconsins-pine-barrens-disappear/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+scienceblogrssfeed+%28ScienceBlog.com%29#Y7pX8tf4VdbXC1gW.97">Science blog</a>, etc.
- </li>
+- 2016, USEPA ORD Bronze Medal 
+- 2015, USEPA Western Ecology Division Certificate of Recognition
+- 2013, USEPA Western Ecology Division Certificate of Recognition
+- 2012, USEPA PeerOvation Top Innovation Award
+- 2012, USEPA Office of Water Bronze Medal
+- 2010, USEPA Office of Water Bronze Medal
+- 2010, USEPA ORD Exceptional Technical Assistance to Regions / Program Offices Award
+- 2007, $500 USFS LANDFIRE Program Appreciation Award
+- 2005, $300 USFS Certificate of Appreciation for Fire history fieldwork
 
-<li> <b>Daijiang Li</b>, Shaolin Peng, Baoming Chen. (2013). The effects of leaf litter evenness on decomposition depend on which plant functional group is dominant. <u><i>Plant and Soil</i></u>. 365:1-2, 255-266. <a target="_blank" href="/pdf/D_Li_2012_plantsoil.pdf"><i class="fa fa-download"></i></a> </li>
-
-<li> Baoming Chen, Shaolin Peng, Carla M. D'Antonio, <b>Daijiang Li</b>, Wentao Ren. (2013). Non-Addiitive Effects on Decomposition from Mixing Litter of the Invasive <i>Mikania micrantha</i> H.B.K. with Native Plants. <u><i>PLoS ONE</i></u>. 8(6): e66289. <a target="_blank" href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0066289"><i class="ai ai-open-access"></i></a> </li>
-
-<li> Bosun Wang, Shaolin Peng, <b>Daijiang Li</b>, Ting Zhou. (2009). Research progress on <i>Merremia boisiana</i>. <u><i>Chinese Journal of Ecology</i></u>. 28 (11), 2360-2365 </li>
-
-</ol>
-
-<a target="_blank" href="https://scholar.google.com/citations?user=0I2wXJQAAAAJ&hl=en"><i class="ai ai-google-scholar ai-2x" style="padding-top:3px;"></i>Google Scholar</a>
-
-## Selected Awards and Grants
-
-- 2016, Ton Damman Award for Best Oral Presentation, $500. Ecological Society of America Vegetation Section 
-- 2015, Early Career Centennial Mentoring Program (10 early career ecologists total), $200. Ecological Society of America
-- 2015, Student Conference Presentation Grant, $600. Graduate school, University of Wisconsin--Madison
-- 2015, The Raper Conference Travel Support , $400. Department of Botany, University of Wisconsin-Madison
-- 2014, The Flora Aeterna Research Grant, $1,500. Department of Botany, University of Wisconsin-Madison
-- 2013, The Flora Aeterna Research Grant, $5,000. Department of Botany, University of Wisconsin-Madison
-- 2012, Davis Research Grant, $1,500. Department of Botany, University of Wisconsin-Madison
-
-<!-- - 2013, Phi Kappa Phi Honor Society (declined), University of Wisconsin-Madison.
-- 2013, First prize for excellent papers by graduate students, Hongda Zhang research fund, Sun Yat-sen University, China
-- 2011, Second award for excellent graduate students, State Key Laboratory of Biocontrol, Sun Yat-sen University, China
-- 2009, 2010, Education Scholarship for Graduate Student (Fellowship), Sun Yat-sen University, China
-- 2009, Excellent prize of presentation in English, Sun Yat-sen University, China
-- 2008, Second Award of National Scholarship, Yunnan University, China
-- 2006, 2007, Second Award of Donglu Scholarship, Yunnan University, China
-
-## Presentations and Posters
-
-- **Daijiang Li**, Donald Waller, 2014 August, Increases in native, not exotic, species plus succession promote biotic homogenization in the sand plain plant communities of central Wisconsin. *99th Ecological Society of America Annual Meeting*, Sacramento, California, USA. (Oral presentation).
-- **Daijiang Li**, Donald Waller, 2014 March, Long-term dynamics in pine barrens of central Wisconsin. *Wisconsin Ecology Annual Spring Symposium*, Madison, Wisconsin. (Oral presentation).
-
-## Professional Experience
-
-- 2014 April 15th, Structure Equation Modeling workshop taught by James Grace.
-- 2013 Oct. 6-11, volunteer of the fifth world conference on ecological restoration.
-
-
-## Teaching
-
-- 2014 August 25-26, Instructor, Software Carpentry Bootcamp, UW-Madison.
-- 2013 Fall, Teaching Assistant, Vegetation of Wisconsin (Bot 455).
-- 2013 Spring, Teaching Assistant, Introductory Biology (Bio 152).
-- 2012 Fall, Teaching Assistant, Vegetation of Wisconsin (Bot 455).
-- 2010 Fall, Teaching Assistant, Restoration Ecology, Sun Yat-sen University, China.
-
-## Undergraduate Mentoring / Research Training
-
-- 2014, Kelly Wallin, Prepare leaf samples for leaf nutrient analysis.
-- 2014, David Barfknecht, Collect and measure plant functional traits.
-- 2014, Madeline Grupper, Prepare leaf samples for leaf nutrient analysis.
-- 2013, Alex Arena, Collect and measure plant functional traits.
-- 2013, Anna Francke, Changes in overstory structure of pine barrens in Wisconsin from 1958 to 2012.
-
--->
-
-## Professional Service and Outreach
-
-- Manuscript reviewer for ([certified review record](https://publons.com/a/719613/)): 
-  + *Ecology Letters*
-  + *Global Ecology and Biogeography*
-  + *Journal of Applied Ecology*
-  + *Journal of Ecology*
-  + *Nature Scientific Reports*
-  + *New Phytologist*
-  + *Plos One*
-  + *Science*
-- 2014, Darwin day volunteer, UW-Madison.
-- 2013 ~ 2014. Biology Colloquium Committee, Botany department, UW-Madison.
-- 2013 ~ 2014. Graduate student Committee, Botany department, UW-Madison.
-- 2012 ~ 2013. Department Technical Committee, Botany department, UW-Madison.
+## Societies
+- US Chapter of the International Association of Landscape Ecology, Member
+- American Association for the Advancement of Science (AAAS), Member
