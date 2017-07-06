@@ -6,13 +6,12 @@ metaDataFormat = "yaml"
 pygmentsUseClasses = true
 pygmentCodeFences = true
 #disqusShortname = "XXX"
-#googleAnalytics = "XXX"
+googleAnalytics = "UA-99730307-1"
 
 [Params]
-  #subtitle = "Geospatial Ruminations"
   logo = "img/MeBiking.png"
   favicon = "img/favicon.ico"
-  dateFormat = "June 02, 2016"
+  # dateFormat = "June 02, 2006"
   commit = false
   rss = true
   comments = true
@@ -31,21 +30,11 @@ pygmentCodeFences = true
 [Author]
   name = "Marc Weber"
   email = "mweber36@gmail.com"
-  #facebook = "username"
-  #googleplus = "+username" # or xxxxxxxxxxxxxxxxxxxxx
   github = "mhweber"
   twitter = "marc_h_weber"
-  #reddit = "username"
-  linkedin = "username"
-  #xing = "username"
-  stackoverflow = "users/XXXXXXX/username"
-  #snapchat = "username"
-  instagram = "username"
-  #youtube = "user/username" # or channel/channelname
-  #soundcloud = "username"
-  #spotify = "username"
-  ##bandcamp = "username"
-  #itchio = "username"
+  linkedin = "marc-weber-a41a3190"
+  stackoverflow = "users/1905305/mweber"
+  instagram = "mweber46"
 
 [[menu.main]]
     name = "Blog"
@@ -90,3 +79,5 @@ pygmentCodeFences = true
     url = "tags"
     weight = 3
 
+[permalinks]
+    post = ":year/:month/:day/:slug"

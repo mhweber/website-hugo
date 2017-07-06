@@ -67,7 +67,7 @@ PDF version available [here](/pdf/cv.pdf).
 
 ### Peer Reviewed Articles
 
-Herlihy, A, J.Sifneos, G. Lomnicky, A. Nahlik, M. Kentula, T. Magee, **M. Weber** and A. Trebitz. In press. The response of wetland quality indicators to human disturbance indicators across the United States. Environmental Monitoring and ASsessment.
+Herlihy, A, J.Sifneos, G. Lomnicky, A. Nahlik, M. Kentula, T. Magee, **M. Weber** and A. Trebitz. In press. The response of wetland quality indicators to human disturbance indicators across the United States. Environmental Monitoring and Assessment.
 
 Fox, E.W., R.A. Hill, S.G. Leibowitz, A.R. Olsen, D.Thornbrugh, and **M.H. Weber**. 2017. Assessing the accuracy and stability of variable selectioni methods for random forest modeling in ecology.  Environmental Monitoring and Assessment. 189(7) 
 
