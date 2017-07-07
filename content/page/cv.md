@@ -101,11 +101,11 @@ Brown, P., E. Heyerdahl, S. Kitchen, and **M. Weber**. 2008. Climate effects on 
 
 Frenzen, P.M., Hadley, K.S., Major, J.J., **Weber, M.H.**, Franklin, J.F., Hardison, J.H., and Stanton, S.M.  (2005). Geomorphic Change and Vegetation Development on the Muddy River Mudflow Deposit. Pages 75-91 in V.H. Dale, F. J. Swanson, and C.M. Crisafuli (eds.). Ecological Responses to the 1980 Eruption of Mount St Helens, Springer, New York, NY.
 
-## Software
+### Software
    
 Payton, Q., A.R. Olsen, **M. Weber**, M. McManus, and T. Kincaid  (2014). micromap: Linked Micromap Plots. Version 1.9.2  [CRAN](https://cran.r-project.org/web/packages/micromap/index.html) repo:  [GitHub](https://github.com/USEPA/R-micromap-package-development) 
 
-## Presentations, Workshops and Panels
+### Presentations, Workshops and Panels
       
 - **Weber, M** and B. Weinstein. [R-Fundamentals for Spatial Data and Advanced Visualization Techniques in R with Spatial Data](https://mhweber.github.io/gis_in_action_r_spatial/).  Day-long workshop for 2017 GIS in Action conference, Portland, OR. April 2017.
    
@@ -131,7 +131,7 @@ Payton, Q., A.R. Olsen, **M. Weber**, M. McManus, and T. Kincaid  (2014). microm
       
 - **Weber, M.** The 1980 Eruption of Mount St. Helens: Mudflows and Their Impact on Forest Dynamics. USFS Fire Sciences Laboratory Seminar Series. Missoula, MT. Feb 2004.
 
-## Posters
+### Posters
    
 - **Weber, M.**, R. Hill, S. Leibowitz, A. Olsen, and D. Thornbrugh. Towards national mapping of aquatic condition: the Stream-Catchment (StreamCat) dataset. Association for Landscape Ecology Annual Meeting. Portland, OR. April 2015.
       
@@ -146,7 +146,6 @@ Payton, Q., A.R. Olsen, **M. Weber**, M. McManus, and T. Kincaid  (2014). microm
 ## Qualifications Memberships and Activities
 
 ### Programming
-
 #### Python
   
 - I've worked with Python extensively as an integral part of work since 2005.  I learned Python on the job working on the US Forest Service [Landfire](http://www.landfire.gov/) program where we used Python for most of our workflow scripts.  Additionally, I participated in a week-long Python immersion class in person with Mark Lutz, author of Programming Python and Learning Python, while working for the LANDFIRE program.  I've continued to develop my Python programming skills using both the ArcGIS ArcPy module as well as many open source spatial modules in Python, and most recently have begun using Python notebooks for reproducible research and Python modules such as Bokeh for data visualization.
@@ -169,13 +168,14 @@ Payton, Q., A.R. Olsen, **M. Weber**, M. McManus, and T. Kincaid  (2014). microm
   
 - I've taken several graduate level statistics courses, including multivariate statistics, and work closely with statisticians in my daily work.  I do all my statistical work in R currently and for the past several years, and have also used SAS, SPSS, and SigmaPlot.
   
-### Data Science and Data Visualization
+#### Data Science and Data Visualization
   
 - Much of my daily work falls under the rubric of 'Data Science', and I use both R and Python for data management, data acquisition, data cleaning, and data transformation.  I've used the libraries and modules in both languages that lend themselves to data manament / data cleaning tasks, such as tidyr, dpyr, ggplot2, reshape2, plyr, and stringr in R and pandas, numpy, abd scipy.  I also use both R and Python for data visualization, using libraries such as plotly, RColorBrewer, choroplethr, micromap, ggplot2, leaflet, and shiny in R, and matplotlib, bokeh, seaborn, and ggplot.  I also use PostGreSQL / PostGIS for storing, manipulating and querying spatial data.
 
-## Awards
+### Awards
 
-- 2016, USEPA ORD Bronze Medal 
+- 2016, USEPA ORD Bronze Medal
+- 2015, USEPA Office of Water Achievement in Science & Technology Award
 - 2015, USEPA Western Ecology Division Certificate of Recognition
 - 2013, USEPA Western Ecology Division Certificate of Recognition
 - 2012, USEPA PeerOvation Top Innovation Award
@@ -185,6 +185,6 @@ Payton, Q., A.R. Olsen, **M. Weber**, M. McManus, and T. Kincaid  (2014). microm
 - 2007, $500 USFS LANDFIRE Program Appreciation Award
 - 2005, $300 USFS Certificate of Appreciation for Fire history fieldwork
 
-## Societies
+### Societies
 - US Chapter of the International Association of Landscape Ecology, Member
 - American Association for the Advancement of Science (AAAS), Member
