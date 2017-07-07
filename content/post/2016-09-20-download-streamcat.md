@@ -1,7 +1,7 @@
 ---
 title: Download StreamCat data
 tags: ['ftplib','python','StreamCat']
-date: 2017-09-20
+date: 2016-09-20
 ---
 
 ### Here's an example code snippet using ftplib in python to download StreamCat data
