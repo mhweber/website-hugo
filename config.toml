@@ -5,7 +5,7 @@ theme = "beautifulhugo"
 metaDataFormat = "yaml"
 pygmentsUseClasses = true
 pygmentCodeFences = true
-disqusShortname = "m_h_weber"
+disqusShortname = "Marc Weber"
 googleAnalytics = "UA-99730307-1"
 
 [Params]
