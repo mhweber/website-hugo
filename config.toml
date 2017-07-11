@@ -1,4 +1,4 @@
-baseurl = "https://mhweber.github.io"
+baseurl = "https://mhweber.github.io/"
 DefaultContentLanguage = "en"
 title = "Marc Weber"
 theme = "beautifulhugo"
