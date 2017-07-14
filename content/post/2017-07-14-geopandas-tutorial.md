@@ -274,7 +274,7 @@ ax.set_title('Watersheds by area ($km^2$)')
 
 
 
-![png](output_23_1.png)
+![](/img/huc8chor.png)
 
 
 Try a spatial join of polygons on points - I'll use a set of USGS stream gages I have handy for the point layer.
@@ -360,7 +360,7 @@ gages_huc8.plot(markersize=6, categorical=True, ax=ax)
 
 
 
-![png](output_30_1.png)
+![](/img/huc8sjoin.png)
 
 
 Now run zonal statistics using polygons and rasters with rasterstats
@@ -404,7 +404,7 @@ rioplot.show(precip, with_bounds=True, cmap=plt.cm.Blues)
 ```
 
 
-![png](output_35_0.png)
+![](/img/prism.png)
 
 
 
@@ -540,4 +540,4 @@ ax.set_title('Average 30-year precipitation ($mm/month$) by HUC8');
 ```
 
 
-![png](output_39_0.png)
+![](/img/zonal.png)
