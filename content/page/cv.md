@@ -45,6 +45,8 @@ PDF version available [here](/pdf/cv.pdf).
 - Assisted in research project on tree-islands (kipukas) in lava flows at Newbarry Crater National Monument, examining fire history and insect outbreaks.  Collected tree increment cores, identified plants using plant keys, and measured fuel loading on sample plots.
 
 ## Additional Courses and Training
+- 2017, Pandas Foundations, DataCamp
+- 2017, Plotly and R Course, DataCamp
 - 2017, Introduction to Python for Data Science, DataCamp
 - 2016, SQL and R - Introduction to Database Queries, Statistics.com
 - 2016, Developing Data Products, Coursera
@@ -67,7 +69,11 @@ PDF version available [here](/pdf/cv.pdf).
 
 ### Peer Reviewed Articles
 
-Herlihy, A, J.Sifneos, G. Lomnicky, A. Nahlik, M. Kentula, T. Magee, **M. Weber** and A. Trebitz. In press. The response of wetland quality indicators to human disturbance indicators across the United States. Environmental Monitoring and Assessment.
+Thornbrugh, D.J., S.G. Leibowitz, R.A. Hill, **M.H. Weber**, Z.G. Johnson, A.R. Olsen, J.E. Floteemersch, and J.L. Stoddard. 2018. Ecological Indicators. 85: 1133-1148.
+
+Hill, Ryan A., E.W. Fox, S.G. Leibowitz, A. R. Olsen, D. J. Thornbrugh, **M.H. Weber**. 2017. Predictive Mapping of the Biotic Condition of Conterminous-USA Rivers and Streams. Ecological Appllications. 27: 2397-2415.
+
+Herlihy, A, J.Sifneos, G. Lomnicky, A. Nahlik, M. Kentula, T. Magee, **M. Weber** and A. Trebitz. In Press. The response of wetland quality indicators to human disturbance indicators across the United States. Environmental Monitoring and Assessment.
 
 Fox, E.W., R.A. Hill, S.G. Leibowitz, A.R. Olsen, D.Thornbrugh, and **M.H. Weber**. 2017. Assessing the accuracy and stability of variable selectioni methods for random forest modeling in ecology.  Environmental Monitoring and Assessment. 189(7) 
 
@@ -148,7 +154,7 @@ Payton, Q., A.R. Olsen, **M. Weber**, M. McManus, and T. Kincaid  (2014). microm
 ### Programming
 #### Python
   
-- I've worked with Python extensively as an integral part of work since 2005.  I learned Python on the job working on the US Forest Service [Landfire](http://www.landfire.gov/) program where we used Python for most of our workflow scripts.  Additionally, I participated in a week-long Python immersion class in person with Mark Lutz, author of Programming Python and Learning Python, while working for the LANDFIRE program.  I've continued to develop my Python programming skills using both the ArcGIS ArcPy module as well as many open source spatial modules in Python, and most recently have begun using Python notebooks for reproducible research and Python modules such as Bokeh for data visualization.
+- I've worked with Python extensively as an integral part of work since 2005.  I learned Python on the job working on the US Forest Service [Landfire](http://www.landfire.gov/) program where we used Python for most of our workflow scripts.  Additionally, I participated in a week-long Python immersion class in person with Mark Lutz, author of Programming Python and Learning Python, while working for the LANDFIRE program.  I've continued to develop my Python programming skills using both the ArcGIS ArcPy module as well as many open source spatial modules in Python, and most recently have begun using Python notebooks for reproducible research and Python modules such as Bokeh for data visualization. I am also a co-lead of the newly formed EPA Python Community of Practice.
       
 #### R  
   
@@ -188,3 +194,4 @@ Payton, Q., A.R. Olsen, **M. Weber**, M. McManus, and T. Kincaid  (2014). microm
 ### Societies
 - US Chapter of the International Association of Landscape Ecology, Member
 - American Association for the Advancement of Science (AAAS), Member
+- AWRA, Member
