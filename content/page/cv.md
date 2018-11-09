@@ -69,7 +69,7 @@ PDF version available [here](/pdf/cv.pdf).
 
 ### Peer Reviewed Articles
 
-Thornbrugh, D.J., S.G. Leibowitz, R.A. Hill, **M.H. Weber**, Z.G. Johnson, A.R. Olsen, J.E. Floteemersch, and J.L. Stoddard. 2018. Ecological Indicators. 85: 1133-1148.
+Thornbrugh, D.J., S.G. Leibowitz, R.A. Hill, **M.H. Weber**, Z.G. Johnson, A.R. Olsen, J.E. Floteemersch, and J.L. Stoddard. 2018. Mapping watershed integrity for the conterminous United States. Ecological Indicators. 85: 1133-1148.
 
 Hill, Ryan A., E.W. Fox, S.G. Leibowitz, A. R. Olsen, D. J. Thornbrugh, **M.H. Weber**. 2017. Predictive Mapping of the Biotic Condition of Conterminous-USA Rivers and Streams. Ecological Appllications. 27: 2397-2415.
 
@@ -104,6 +104,9 @@ Brown, P., E. Heyerdahl, S. Kitchen, and **M. Weber**. 2008. Climate effects on 
 
 
 ### Chapters
+Bijak, A., **M. Weber**, and Tony Olsen. NHD use in National Aquatic Resource Surveys. GIS for Surface Water - Using the National Hydrography Dataset. ESRI Press, Viena, VA, , 389-392, (2018).
+
+**Weber. M.H.**, R.A. Hill, S.G. Leibowitz, and A. R. Olsen. NHD Use in the StreamCat Dataset. GIS for Surface Water - Using the National Hydrography Dataset. ESRI Press, Viena, VA, , 389-392, (2018).
 
 Frenzen, P.M., Hadley, K.S., Major, J.J., **Weber, M.H.**, Franklin, J.F., Hardison, J.H., and Stanton, S.M.  (2005). Geomorphic Change and Vegetation Development on the Muddy River Mudflow Deposit. Pages 75-91 in V.H. Dale, F. J. Swanson, and C.M. Crisafuli (eds.). Ecological Responses to the 1980 Eruption of Mount St Helens, Springer, New York, NY.
 
@@ -112,7 +115,10 @@ Frenzen, P.M., Hadley, K.S., Major, J.J., **Weber, M.H.**, Franklin, J.F., Hardi
 Payton, Q., A.R. Olsen, **M. Weber**, M. McManus, and T. Kincaid  (2014). micromap: Linked Micromap Plots. Version 1.9.2  [CRAN](https://cran.r-project.org/web/packages/micromap/index.html) repo:  [GitHub](https://github.com/USEPA/R-micromap-package-development) 
 
 ### Presentations, Workshops and Panels
-      
+- **Weber, M**. [R Spatial Workshop](https://mhweber.github.io/R-User-Group-Spatial-Workshop-2018/).  Half-day workshop for the EPA R User Group, Durham, NC. September 2018.
+
+- **Weber, M**, M. McManus, and S. Kopp. [R and Spatial Data](https://mhweber.github.io/AWRA_GIS_R_Workshop/).  Day-long workshop for the AWRA Spring Specialty Conference - GIS  & Water Resources X, Orlando, FL. April 2018.
+     
 - **Weber, M** and B. Weinstein. [R-Fundamentals for Spatial Data and Advanced Visualization Techniques in R with Spatial Data](https://mhweber.github.io/gis_in_action_r_spatial/).  Day-long workshop for 2017 GIS in Action conference, Portland, OR. April 2017.
    
 - **Weber, M.**, R. Hill, S. Leibowitz, A. Olsen, D. Thornbrugh, R. Debbout, and T. Larsen. The Stream-Catchment (StreamCat) dataset. USEPA Spring GIS Workgroup Mason-Hewitt Excellence in GIS nomination presentation. April 2016
