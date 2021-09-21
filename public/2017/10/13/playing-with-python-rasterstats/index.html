@@ -9,13 +9,13 @@
   <meta property="og:title" content="Playing with Python Rasterstats" />
   <meta name="twitter:title" content="Playing with Python Rasterstats" />
   <meta name="description" content="This is code to get PctAg and PctUrb using NLCD 2006 for US Counties. First we&rsquo;ll import some libraries.
-import pandas as pd import numpy as np import geopandas as gp  Bring in US Counties using US Census counties shapefile
-counties = gp.GeoDataFrame.from_file(&#39;L:/Priv/CORFiles/Geospatial_Library/Data/RESOURCE/POLITICAL/BOUNDARIES/NATIONAL/Counties_Census_2010.shp&#39;) list(counties) counties.STATE_NAME.unique() counties = counties[(counties.STATE_NAME != &#39;Hawaii&#39;) &amp; (counties.STATE_NAME != &#39;Alaska&#39;)] counties = counties[[&#39;FIPS&#39;,&#39;NAME&#39;,&#39;geometry&#39;]] counties.head()    .dataframe thead tr:only-child th { text-align: right; } .">
+import pandas as pd import numpy as np import geopandas as gp Bring in US Counties using US Census counties shapefile
+counties = gp.GeoDataFrame.from_file(&#39;L:/Priv/CORFiles/Geospatial_Library/Data/RESOURCE/POLITICAL/BOUNDARIES/NATIONAL/Counties_Census_2010.shp&#39;) list(counties) counties.STATE_NAME.unique() counties = counties[(counties.STATE_NAME != &#39;Hawaii&#39;) &amp; (counties.STATE_NAME != &#39;Alaska&#39;)] counties = counties[[&#39;FIPS&#39;,&#39;NAME&#39;,&#39;geometry&#39;]] counties.head() .dataframe thead th {text-align: left;}.dataframe tbody tr th {vertical-align: top;} counties.">
   <meta property="og:description" content="This is code to get PctAg and PctUrb using NLCD 2006 for US Counties. First we&rsquo;ll import some libraries.
-import pandas as pd import numpy as np import geopandas as gp  Bring in US Counties using US Census counties shapefile
-counties = gp.GeoDataFrame.from_file(&#39;L:/Priv/CORFiles/Geospatial_Library/Data/RESOURCE/POLITICAL/BOUNDARIES/NATIONAL/Counties_Census_2010.shp&#39;) list(counties) counties.STATE_NAME.unique() counties = counties[(counties.STATE_NAME != &#39;Hawaii&#39;) &amp; (counties.STATE_NAME != &#39;Alaska&#39;)] counties = counties[[&#39;FIPS&#39;,&#39;NAME&#39;,&#39;geometry&#39;]] counties.head()    .dataframe thead tr:only-child th { text-align: right; } .">
+import pandas as pd import numpy as np import geopandas as gp Bring in US Counties using US Census counties shapefile
+counties = gp.GeoDataFrame.from_file(&#39;L:/Priv/CORFiles/Geospatial_Library/Data/RESOURCE/POLITICAL/BOUNDARIES/NATIONAL/Counties_Census_2010.shp&#39;) list(counties) counties.STATE_NAME.unique() counties = counties[(counties.STATE_NAME != &#39;Hawaii&#39;) &amp; (counties.STATE_NAME != &#39;Alaska&#39;)] counties = counties[[&#39;FIPS&#39;,&#39;NAME&#39;,&#39;geometry&#39;]] counties.head() .dataframe thead th {text-align: left;}.dataframe tbody tr th {vertical-align: top;} counties.">
   <meta name="twitter:description" content="This is code to get PctAg and PctUrb using NLCD 2006 for US Counties. First we&rsquo;ll import some libraries.
-import pandas as pd import numpy as np import geopandas as gp  Bring in US Counties using …">
+import pandas as pd import numpy as np import geopandas as gp Bring in US Counties using …">
   <meta name="author" content="Marc Weber"/>
   <link href='https://mhweber.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://mhweber.github.io/img/MeBiking.png" />
@@ -27,7 +27,7 @@ import pandas as pd import numpy as np import geopandas as gp  Bring in US Count
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Marc Weber" />
 
-  <meta name="generator" content="Hugo 0.22" />
+  <meta name="generator" content="Hugo 0.88.1" />
   <link rel="canonical" href="https://mhweber.github.io/2017/10/13/playing-with-python-rasterstats/" />
   <link rel="alternate" href="https://mhweber.github.io/index.xml" type="application/rss+xml" title="Marc Weber">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -91,12 +91,16 @@ import pandas as pd import numpy as np import geopandas as gp  Bring in US Count
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-99730307-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-99730307-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 
@@ -185,7 +189,7 @@ ga('send', 'pageview');
                 
                 
                   <span class="post-meta">
-  Posted on October 13, 2017
+  
   
 </span>
 
@@ -205,92 +209,34 @@ ga('send', 'pageview');
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>This is code to get PctAg and PctUrb using NLCD 2006 for US Counties. First we&rsquo;ll import some libraries.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gp</span>
+</code></pre></div><p>Bring in US Counties using US Census counties shapefile</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">counties</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s1">&#39;L:/Priv/CORFiles/Geospatial_Library/Data/RESOURCE/POLITICAL/BOUNDARIES/NATIONAL/Counties_Census_2010.shp&#39;</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">counties</span><span class="p">)</span>
+<span class="n">counties</span><span class="o">.</span><span class="n">STATE_NAME</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">counties</span> <span class="o">=</span> <span class="n">counties</span><span class="p">[(</span><span class="n">counties</span><span class="o">.</span><span class="n">STATE_NAME</span> <span class="o">!=</span> <span class="s1">&#39;Hawaii&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">counties</span><span class="o">.</span><span class="n">STATE_NAME</span> <span class="o">!=</span> <span class="s1">&#39;Alaska&#39;</span><span class="p">)]</span>
+<span class="n">counties</span> <span class="o">=</span> <span class="n">counties</span><span class="p">[[</span><span class="s1">&#39;FIPS&#39;</span><span class="p">,</span><span class="s1">&#39;NAME&#39;</span><span class="p">,</span><span class="s1">&#39;geometry&#39;</span><span class="p">]]</span>
+<span class="n">counties</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-<pre><code class="language-python">import pandas as pd
-import numpy as np
-import geopandas as gp
+.dataframe tbody tr th {
+    vertical-align: top;
+}
 </code></pre>
-
-<p>Bring in US Counties using US Census counties shapefile</p>
-
-<pre><code class="language-python">counties = gp.GeoDataFrame.from_file('L:/Priv/CORFiles/Geospatial_Library/Data/RESOURCE/POLITICAL/BOUNDARIES/NATIONAL/Counties_Census_2010.shp')
-list(counties)
-counties.STATE_NAME.unique()
-counties = counties[(counties.STATE_NAME != 'Hawaii') &amp; (counties.STATE_NAME != 'Alaska')]
-counties = counties[['FIPS','NAME','geometry']]
-counties.head()
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">counties</span><span class="o">.</span><span class="n">crs</span>
+</code></pre></div><pre><code>{'init': u'epsg:4326'}
 </code></pre>
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>FIPS</th>
-      <th>NAME</th>
-      <th>geometry</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>27077</td>
-      <td>Lake of the Woods</td>
-      <td>POLYGON ((-95.34283127277658 48.546679319076, ...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>53019</td>
-      <td>Ferry</td>
-      <td>POLYGON ((-118.8516288013387 47.94956368481996...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>53065</td>
-      <td>Stevens</td>
-      <td>POLYGON ((-117.438831576286 48.04411548512263,...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>53047</td>
-      <td>Okanogan</td>
-      <td>POLYGON ((-118.972093862835 47.93915200536639,...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>53051</td>
-      <td>Pend Oreille</td>
-      <td>POLYGON ((-117.4385804303028 48.99991850672649...</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<pre><code class="language-python">counties.crs
-</code></pre>
-
-<pre><code>{'init': u'epsg:4326'}
-</code></pre>
-
-<pre><code class="language-python">import rasterio
-test = rasterio.open(nlcd)
-test.meta
-</code></pre>
-
-<pre><code>{'count': 1,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">rasterio</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">nlcd</span><span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">meta</span>
+</code></pre></div><pre><code>{'count': 1,
  'crs': CRS({'init': u'epsg:5070'}),
  'driver': u'GTiff',
  'dtype': 'uint8',
@@ -300,24 +246,15 @@ test.meta
        0.0, -30.0, 3621375.0),
  'width': 163008}
 </code></pre>
-
 <p>Put counties in same projection as nlcd raster</p>
-
-<pre><code class="language-python">counties = counties.to_crs(epsg=5070) 
-</code></pre>
-
-<pre><code class="language-python">from rasterstats import raster_stats 
-nlcd = 'L:/Priv/CORFiles/Geospatial_Library/Data/Project/StreamCat/LandscapeRasters/QAComplete/nlcd2006.tif'
-county_stats = zonal_stats(counties, nlcd, stats=&quot;count majority minority unique&quot;, geojson_out=True, 
-                            nodata_value=0, categorical=True)
-</code></pre>
-
-<p>Check some results</p>
-
-<pre><code class="language-python">county_stats[0]['properties']
-</code></pre>
-
-<pre><code>{11: 1362310L,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">counties</span> <span class="o">=</span> <span class="n">counties</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">5070</span><span class="p">)</span> 
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">rasterstats</span> <span class="kn">import</span> <span class="n">raster_stats</span> 
+<span class="n">nlcd</span> <span class="o">=</span> <span class="s1">&#39;L:/Priv/CORFiles/Geospatial_Library/Data/Project/StreamCat/LandscapeRasters/QAComplete/nlcd2006.tif&#39;</span>
+<span class="n">county_stats</span> <span class="o">=</span> <span class="n">zonal_stats</span><span class="p">(</span><span class="n">counties</span><span class="p">,</span> <span class="n">nlcd</span><span class="p">,</span> <span class="n">stats</span><span class="o">=</span><span class="s2">&#34;count majority minority unique&#34;</span><span class="p">,</span> <span class="n">geojson_out</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                            <span class="n">nodata_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div><p>Check some results</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">county_stats</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span>
+</code></pre></div><pre><code>{11: 1362310L,
  21: 42144L,
  22: 5143L,
  23: 731L,
@@ -339,11 +276,8 @@ county_stats = zonal_stats(counties, nlcd, stats=&quot;count majority minority u
  'minority': 43.0,
  'unique': 15}
 </code></pre>
-
-<pre><code class="language-python">[x['properties'] for x in county_stats if x['properties']['NAME'] == &quot;Multnomah&quot;]
-</code></pre>
-
-<pre><code>[{11: 55949L,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">county_stats</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;NAME&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;Multnomah&#34;</span><span class="p">]</span>
+</code></pre></div><pre><code>[{11: 55949L,
   21: 61237L,
   22: 161213L,
   23: 165285L,
@@ -365,40 +299,29 @@ county_stats = zonal_stats(counties, nlcd, stats=&quot;count majority minority u
   'minority': 31.0,
   'unique': 15}]
 </code></pre>
-
 <p>Now we need to pull out %Ag an %Urb for each county - pull out into lists and then stack into a pandas data frame to write out</p>
-
-<pre><code class="language-python">FIPS = [x['properties']['FIPS'] for x in county_stats]
-Hay = [x['properties'][81] if x['properties'].has_key(81) else 0 for x in county_stats]
-Crops = [x['properties'][82] if x['properties'].has_key(82) else 0 for x in county_stats]
-DevO = [x['properties'][21] if x['properties'].has_key(21) else 0 for x in county_stats]
-DevL = [x['properties'][22] if x['properties'].has_key(22) else 0 for x in county_stats]
-DevM = [x['properties'][23] if x['properties'].has_key(23) else 0 for x in county_stats]
-DevH = [x['properties'][24] if x['properties'].has_key(24) else 0 for x in county_stats]
-Total = [x['properties']['count'] for x in county_stats]
-</code></pre>
-
-<pre><code class="language-python">from operator import truediv
-Ag =  [sum(x) for x in zip(Hay, Crops)]
-PctAg =  map(truediv, Ag, Total)
-PctAg = [x * 100 for x in PctAg]
-Urb = [sum(x) for x in zip(DevO, DevL, DevM, DevH)]
-PctUrb =  map(truediv, Urb, Total)
-PctUrb = [x * 100 for x in PctUrb]
-</code></pre>
-
-<pre><code class="language-python">Results = pd.DataFrame(np.column_stack([FIPS, PctAg, PctUrb]), 
-                               columns=['FIPS', 'PctAg', 'PctUrb'])
-Results.head()
-Results.to_csv('H:/WorkingData/CountyPctAgPctUrb.csv', sep = ',', index=False)
-</code></pre>
-
-<p>geo_interface is what we&rsquo;re making use of in zonal_stats &lsquo;geojson_out&rsquo; parameter just for clarity</p>
-
-<pre><code class="language-python">counties.__geo_interface__['features'][0]
-</code></pre>
-
-<pre><code>{'bbox': (-95.34283127277658,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">FIPS</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;FIPS&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">county_stats</span><span class="p">]</span>
+<span class="n">Hay</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="mi">81</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="mi">81</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">county_stats</span><span class="p">]</span>
+<span class="n">Crops</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="mi">82</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="mi">82</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">county_stats</span><span class="p">]</span>
+<span class="n">DevO</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="mi">21</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">county_stats</span><span class="p">]</span>
+<span class="n">DevL</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="mi">22</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">county_stats</span><span class="p">]</span>
+<span class="n">DevM</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="mi">23</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">county_stats</span><span class="p">]</span>
+<span class="n">DevH</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="mi">24</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">county_stats</span><span class="p">]</span>
+<span class="n">Total</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">county_stats</span><span class="p">]</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">truediv</span>
+<span class="n">Ag</span> <span class="o">=</span>  <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Hay</span><span class="p">,</span> <span class="n">Crops</span><span class="p">)]</span>
+<span class="n">PctAg</span> <span class="o">=</span>  <span class="nb">map</span><span class="p">(</span><span class="n">truediv</span><span class="p">,</span> <span class="n">Ag</span><span class="p">,</span> <span class="n">Total</span><span class="p">)</span>
+<span class="n">PctAg</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">PctAg</span><span class="p">]</span>
+<span class="n">Urb</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">DevO</span><span class="p">,</span> <span class="n">DevL</span><span class="p">,</span> <span class="n">DevM</span><span class="p">,</span> <span class="n">DevH</span><span class="p">)]</span>
+<span class="n">PctUrb</span> <span class="o">=</span>  <span class="nb">map</span><span class="p">(</span><span class="n">truediv</span><span class="p">,</span> <span class="n">Urb</span><span class="p">,</span> <span class="n">Total</span><span class="p">)</span>
+<span class="n">PctUrb</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">PctUrb</span><span class="p">]</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">FIPS</span><span class="p">,</span> <span class="n">PctAg</span><span class="p">,</span> <span class="n">PctUrb</span><span class="p">]),</span> 
+                               <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;PctAg&#39;</span><span class="p">,</span> <span class="s1">&#39;PctUrb&#39;</span><span class="p">])</span>
+<span class="n">Results</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">Results</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;H:/WorkingData/CountyPctAgPctUrb.csv&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div><p>geo_interface is what we&rsquo;re making use of in zonal_stats &lsquo;geojson_out&rsquo; parameter just for clarity</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">counties</span><span class="o">.</span><span class="n">__geo_interface__</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div><pre><code>{'bbox': (-95.34283127277658,
   48.368212434671534,
   -94.43063445677862,
   49.371730136640736),
@@ -431,10 +354,8 @@ Results.to_csv('H:/WorkingData/CountyPctAgPctUrb.csv', sep = ',', index=False)
  'properties': {u'FIPS': u'27077', u'NAME': u'Lake of the Woods'},
  'type': 'Feature'}
 </code></pre>
-
-<pre><code class="language-python">
-</code></pre>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python">
+</code></pre></div>
       </article>
 
       <ul class="pager blog-pager">
@@ -454,20 +375,25 @@ Results.to_csv('H:/WorkingData/CountyPctAgPctUrb.csv', sep = ',', index=False)
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'mhweber';
-    var disqus_identifier = 'https:\/\/mhweber.github.io\/2017\/10\/13\/playing-with-python-rasterstats\/';
-    var disqus_title = 'Playing with Python Rasterstats';
-    var disqus_url = 'https:\/\/mhweber.github.io\/2017\/10\/13\/playing-with-python-rasterstats\/';
-
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mhweber" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
           </div>
         
       
@@ -553,7 +479,7 @@ Results.to_csv('H:/WorkingData/CountyPctAgPctUrb.csv', sep = ',', index=False)
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.22</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.88.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

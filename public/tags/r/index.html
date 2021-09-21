@@ -19,7 +19,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Marc Weber" />
 
-  <meta name="generator" content="Hugo 0.22" />
+  <meta name="generator" content="Hugo 0.88.1" />
   <link rel="canonical" href="https://mhweber.github.io/tags/r/" />
   <link rel="alternate" href="https://mhweber.github.io/index.xml" type="application/rss+xml" title="Marc Weber">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -83,12 +83,16 @@
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-99730307-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-99730307-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 
@@ -186,15 +190,14 @@ ga('send', 'pageview');
               </a>
     
               <p class="post-meta">
-                Posted on February 12, 2020
+                
               </p>
               <div class="post-entry">
                 
                   I finally decided to try creating a bookdown project and see if I could figure out hosting it on GitHub Pages. The steps I followed were:
- Create a new empty GitHub repo on GitHub without a readme
- Create a new local R Project in a new directory as project type Book Project using bookdown
- Initialize a .git repository for the project after it is created
- Using code snippets on the GitHub repo you just created (initial page that shows up when you create the empty repository):
+  Create a new empty GitHub repo on GitHub without a readme
+  Create a new local R Project in a new directory as project type Book Project using bookdown
+  Initialize a .git repository for the project after it is created
                   <a href="https://mhweber.github.io/2020/02/12/trying-out-bookdown-and-publishing-to-github-pages/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -223,12 +226,12 @@ ga('send', 'pageview');
               </a>
     
               <p class="post-meta">
-                Posted on May 28, 2019
+                
               </p>
               <div class="post-entry">
                 
                   Pull in data via API for Survey data This script uses the NASS API to query the NASS Quickstats service for historic acres harvested of primary crop groups in Willamette basin counties in Oregon from 1969-2013. An example of using the NASS Quickstats API to pull in and examine crop data in Willamette basin.
-library(dplyr)  ## Warning: package 'dplyr' was built under R version 3.5.2  library(tibble) library(tidyr) library(rnassqs) library(lubridate) library(readr) years &lt;- seq(as.
+library(dplyr) ## Warning: package 'dplyr' was built under R version 3.5.2library(tibble) library(tidyr) library(rnassqs) library(lubridate) library(readr) years &lt;- seq(as.
                   <a href="https://mhweber.github.io/2019/05/28/testing-the-rnassqs-r-package-with-willamette-basin-data/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -257,13 +260,13 @@ library(dplyr)  ## Warning: package 'dplyr' was built under R version 3.5.2  lib
               </a>
     
               <p class="post-meta">
-                Posted on November 9, 2018
+                
               </p>
               <div class="post-entry">
                 
                   Recently I wanted to be able to add a custom basemap of NHDPlus features to mapview leaflet maps. It&rsquo;s not straitforward out of the box in mapview, but I found the helpful tips to do it here and here.
 Below I add the WMS service from EPA Waters along with USGS StreamGage stations in Benton County, OR using the dataRetrieval package.
-library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &lt;- readNWISdata(stateCd=&quot;Oregon&quot;, countyCd=&quot;Benton&quot;) # DataRetrival returns objects as 'attributes' - things like the url used, site metadata, site info, etc - just use attributes(Durham_Stations) to examine siteInfo &lt;- attr(Stations , &quot;siteInfo&quot;) stations_sf = st_as_sf(siteInfo, coords = c(&quot;dec_lon_va&quot;, &quot;dec_lat_va&quot;), crs = 4269,agr = &quot;constant&quot;) m &lt;- mapview(stations_sf) m@map = m@map %&gt;% addWMSTiles(group = 'NHDPlus', &quot;https://watersgeo.
+library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &lt;- readNWISdata(stateCd=&#34;Oregon&#34;, countyCd=&#34;Benton&#34;) # DataRetrival returns objects as &#39;attributes&#39; - things like the url used, site metadata, site info, etc - just use attributes(Durham_Stations) to examine siteInfo &lt;- attr(Stations , &#34;siteInfo&#34;) stations_sf = st_as_sf(siteInfo, coords = c(&#34;dec_lon_va&#34;, &#34;dec_lat_va&#34;), crs = 4269,agr = &#34;constant&#34;) m &lt;- mapview(stations_sf) m@map = m@map %&gt;% addWMSTiles(group = &#39;NHDPlus&#39;, &#34;https://watersgeo.
                   <a href="https://mhweber.github.io/2018/11/09/adding-wms-basemap-in-r-with-mapview/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -294,7 +297,7 @@ library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &l
               </a>
     
               <p class="post-meta">
-                Posted on September 12, 2018
+                
               </p>
               <div class="post-entry">
                 
@@ -333,11 +336,11 @@ library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &l
               </a>
     
               <p class="post-meta">
-                Posted on February 24, 2017
+                
               </p>
               <div class="post-entry">
                 
-                  Load and look at basics of simple features package library(devtools) # install_github(&quot;edzer/sfr&quot;) library(sf)  ## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3  nc &lt;- st_read(system.file(&quot;shape/nc.shp&quot;, package=&quot;sf&quot;))  ## Reading layer `nc' from data source `C:\Users\mweber\R\library\sf\shape\nc.shp' using driver `ESRI Shapefile' ## converted into: MULTIPOLYGON ## Simple feature collection with 100 features and 14 fields ## geometry type: MULTIPOLYGON ## dimension: XY ## bbox: xmin: -84.32385 ymin: 33.88199 xmax: -75.
+                  Load and look at basics of simple features package library(devtools) # install_github(&#34;edzer/sfr&#34;) library(sf) ## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3nc &lt;- st_read(system.file(&#34;shape/nc.shp&#34;, package=&#34;sf&#34;)) ## Reading layer `nc' from data source `C:\Users\mweber\R\library\sf\shape\nc.shp' using driver `ESRI Shapefile'## converted into: MULTIPOLYGON## Simple feature collection with 100 features and 14 fields## geometry type: MULTIPOLYGON## dimension: XY## bbox: xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965## epsg (SRID): 4267## proj4string: +proj=longlat +datum=NAD27 +no_defsclass(nc) ## [1] &quot;sf&quot; &quot;data.
                   <a href="https://mhweber.github.io/2017/02/24/testing-the-simple-features-r-package/" class="post-read-more">[Read More]</a>
                 
               </div>
@@ -364,15 +367,13 @@ library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &l
               </a>
     
               <p class="post-meta">
-                Posted on December 2, 2016
+                
               </p>
               <div class="post-entry">
                 
-                  
+                  <h3 id="working-with-postgres--postgis-more-now-and-playing-with-reading-and-writing-from-r-and-python--heres-snippet-showing-read-in-of-postgis-in-r">Working with Postgres / PostGIS more now and playing with reading and writing from R and Python.  Here&rsquo;s snippet showing read in of PostGIS in R:</h3>
+<script type="application/javascript" src="https://gist.github.com/mhweber/09cd7e3248bbff8cea99b013ce0fe1c7.js"></script>
 
-<h3 id="working-with-postgres-postgis-more-now-and-playing-with-reading-and-writing-from-r-and-python-here-s-snippet-showing-read-in-of-postgis-in-r">Working with Postgres / PostGIS more now and playing with reading and writing from R and Python.  Here&rsquo;s snippet showing read in of PostGIS in R:</h3>
-
-<script src="//gist.github.com/mhweber/09cd7e3248bbff8cea99b013ce0fe1c7.js"></script>
 
                 
               </div>
@@ -397,17 +398,14 @@ library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &l
               </a>
     
               <p class="post-meta">
-                Posted on March 10, 2016
+                
               </p>
               <div class="post-entry">
                 
-                  
-
-<h3 id="using-match-and-indexing-to-create-a-lookup-in-r">Using match and indexing to create a lookup in R</h3>
-
+                  <h3 id="using-match-and-indexing-to-create-a-lookup-in-r">Using match and indexing to create a lookup in R</h3>
 <p>This code takes a lookup table and applies it to a data frame, updating only values for records that occur in the lookup table using indexing and match:</p>
+<script type="application/javascript" src="https://gist.github.com/mhweber/8672fce88c75f6f56d27.js"></script>
 
-<script src="//gist.github.com/mhweber/8672fce88c75f6f56d27.js"></script>
 
                 
               </div>
@@ -432,15 +430,14 @@ library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &l
               </a>
     
               <p class="post-meta">
-                Posted on February 2, 2016
+                
               </p>
               <div class="post-entry">
                 
                   <p>Extracting line end nodes in R</p>
-
 <p>I noticed the <a href="https://cran.r-project.org/web/packages/maptools/index.html">maptools</a> package in <a href="https://www.r-project.org/">R</a> had a SpatialLinesMidPoints function but couldn&rsquo;t find any other out of the box functions in any packages to extract line endpoints.  So I modified SpatialLinesMidPoints slightly to do the job:</p>
+<script type="application/javascript" src="https://gist.github.com/mhweber/d0e16ae9ff9beee798ea.js"></script>
 
-<script src="//gist.github.com/mhweber/d0e16ae9ff9beee798ea.js"></script>
 
                 
               </div>
@@ -542,7 +539,7 @@ library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &l
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.22</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.88.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

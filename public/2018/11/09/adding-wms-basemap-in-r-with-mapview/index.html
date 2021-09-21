@@ -10,10 +10,10 @@
   <meta name="twitter:title" content="Adding WMS basemap in R with mapview" />
   <meta name="description" content="Recently I wanted to be able to add a custom basemap of NHDPlus features to mapview leaflet maps. It&rsquo;s not straitforward out of the box in mapview, but I found the helpful tips to do it here and here.
 Below I add the WMS service from EPA Waters along with USGS StreamGage stations in Benton County, OR using the dataRetrieval package.
-library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &lt;- readNWISdata(stateCd=&quot;Oregon&quot;, countyCd=&quot;Benton&quot;) # DataRetrival returns objects as &#39;attributes&#39; - things like the url used, site metadata, site info, etc - just use attributes(Durham_Stations) to examine siteInfo &lt;- attr(Stations , &quot;siteInfo&quot;) stations_sf = st_as_sf(siteInfo, coords = c(&quot;dec_lon_va&quot;, &quot;dec_lat_va&quot;), crs = 4269,agr = &quot;constant&quot;) m &lt;- mapview(stations_sf) m@map = m@map %&gt;% addWMSTiles(group = &#39;NHDPlus&#39;, &quot;https://watersgeo.">
+library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &lt;- readNWISdata(stateCd=&#34;Oregon&#34;, countyCd=&#34;Benton&#34;) # DataRetrival returns objects as &#39;attributes&#39; - things like the url used, site metadata, site info, etc - just use attributes(Durham_Stations) to examine siteInfo &lt;- attr(Stations , &#34;siteInfo&#34;) stations_sf = st_as_sf(siteInfo, coords = c(&#34;dec_lon_va&#34;, &#34;dec_lat_va&#34;), crs = 4269,agr = &#34;constant&#34;) m &lt;- mapview(stations_sf) m@map = m@map %&gt;% addWMSTiles(group = &#39;NHDPlus&#39;, &#34;https://watersgeo.">
   <meta property="og:description" content="Recently I wanted to be able to add a custom basemap of NHDPlus features to mapview leaflet maps. It&rsquo;s not straitforward out of the box in mapview, but I found the helpful tips to do it here and here.
 Below I add the WMS service from EPA Waters along with USGS StreamGage stations in Benton County, OR using the dataRetrieval package.
-library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &lt;- readNWISdata(stateCd=&quot;Oregon&quot;, countyCd=&quot;Benton&quot;) # DataRetrival returns objects as &#39;attributes&#39; - things like the url used, site metadata, site info, etc - just use attributes(Durham_Stations) to examine siteInfo &lt;- attr(Stations , &quot;siteInfo&quot;) stations_sf = st_as_sf(siteInfo, coords = c(&quot;dec_lon_va&quot;, &quot;dec_lat_va&quot;), crs = 4269,agr = &quot;constant&quot;) m &lt;- mapview(stations_sf) m@map = m@map %&gt;% addWMSTiles(group = &#39;NHDPlus&#39;, &quot;https://watersgeo.">
+library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &lt;- readNWISdata(stateCd=&#34;Oregon&#34;, countyCd=&#34;Benton&#34;) # DataRetrival returns objects as &#39;attributes&#39; - things like the url used, site metadata, site info, etc - just use attributes(Durham_Stations) to examine siteInfo &lt;- attr(Stations , &#34;siteInfo&#34;) stations_sf = st_as_sf(siteInfo, coords = c(&#34;dec_lon_va&#34;, &#34;dec_lat_va&#34;), crs = 4269,agr = &#34;constant&#34;) m &lt;- mapview(stations_sf) m@map = m@map %&gt;% addWMSTiles(group = &#39;NHDPlus&#39;, &#34;https://watersgeo.">
   <meta name="twitter:description" content="Recently I wanted to be able to add a custom basemap of NHDPlus features to mapview leaflet maps. It&rsquo;s not straitforward out of the box in mapview, but I found the helpful tips to do it here and …">
   <meta name="author" content="Marc Weber"/>
   <link href='https://mhweber.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -26,7 +26,7 @@ library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &l
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Marc Weber" />
 
-  <meta name="generator" content="Hugo 0.22" />
+  <meta name="generator" content="Hugo 0.88.1" />
   <link rel="canonical" href="https://mhweber.github.io/2018/11/09/adding-wms-basemap-in-r-with-mapview/" />
   <link rel="alternate" href="https://mhweber.github.io/index.xml" type="application/rss+xml" title="Marc Weber">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -90,12 +90,16 @@ library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &l
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-99730307-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-99730307-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 
@@ -184,7 +188,7 @@ ga('send', 'pageview');
                 
                 
                   <span class="post-meta">
-  Posted on November 9, 2018
+  
   
 </span>
 
@@ -204,27 +208,24 @@ ga('send', 'pageview');
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>Recently I wanted to be able to add a custom basemap of <a href="https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus">NHDPlus</a> features to <a href="https://github.com/r-spatial/mapview">mapview</a> <a href="https://rstudio.github.io/leaflet/">leaflet</a> maps. It&rsquo;s not straitforward out of the box in <code>mapview</code>, but I found the helpful tips to do it <a href="https://atriplex.info/blog/index.php/2017/06/08/adding-wms-basemaps-to-a-mapview-map/">here</a> and <a href="https://github.com/r-spatial/mapview/issues/39#issuecomment-271252820">here</a>.</p>
-
 <p>Below I add the WMS service from <a href="https://watersgeo.epa.gov/arcgis/services/NHDPlus_NP21/NHDSnapshot_NP21/MapServer/WmsServer?">EPA Waters</a> along with USGS StreamGage stations in Benton County, OR using the <a href="https://github.com/USGS-R/dataRetrieval">dataRetrieval package</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">dataRetrieval</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">mapview</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">leaflet</span><span class="p">)</span>
+<span class="n">Stations</span> <span class="o">&lt;-</span> <span class="nf">readNWISdata</span><span class="p">(</span><span class="n">stateCd</span><span class="o">=</span><span class="s">&#34;Oregon&#34;</span><span class="p">,</span> <span class="n">countyCd</span><span class="o">=</span><span class="s">&#34;Benton&#34;</span><span class="p">)</span>
+<span class="c1"># DataRetrival returns objects as &#39;attributes&#39; - things like the url used, site metadata, site info, etc - just use attributes(Durham_Stations) to examine</span>
+<span class="n">siteInfo</span> <span class="o">&lt;-</span> <span class="nf">attr</span><span class="p">(</span><span class="n">Stations</span> <span class="p">,</span> <span class="s">&#34;siteInfo&#34;</span><span class="p">)</span>
+<span class="n">stations_sf</span> <span class="o">=</span> <span class="nf">st_as_sf</span><span class="p">(</span><span class="n">siteInfo</span><span class="p">,</span> <span class="n">coords</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;dec_lon_va&#34;</span><span class="p">,</span> <span class="s">&#34;dec_lat_va&#34;</span><span class="p">),</span> <span class="n">crs</span> <span class="o">=</span> <span class="m">4269</span><span class="p">,</span><span class="n">agr</span> <span class="o">=</span> <span class="s">&#34;constant&#34;</span><span class="p">)</span>
 
-<pre><code class="language-r">library(dataRetrieval)
-library(mapview)
-library(sf)
-library(leaflet)
-Stations &lt;- readNWISdata(stateCd=&quot;Oregon&quot;, countyCd=&quot;Benton&quot;)
-# DataRetrival returns objects as 'attributes' - things like the url used, site metadata, site info, etc - just use attributes(Durham_Stations) to examine
-siteInfo &lt;- attr(Stations , &quot;siteInfo&quot;)
-stations_sf = st_as_sf(siteInfo, coords = c(&quot;dec_lon_va&quot;, &quot;dec_lat_va&quot;), crs = 4269,agr = &quot;constant&quot;)
-
-m &lt;- mapview(stations_sf)
-m@map = m@map %&gt;% addWMSTiles(group = 'NHDPlus',
-                              &quot;https://watersgeo.epa.gov/arcgis/services/NHDPlus_NP21/NHDSnapshot_NP21/MapServer/WmsServer?&quot;,
-                              layers  = 4,
-                              options = WMSTileOptions(format = &quot;image/png&quot;, transparent = TRUE),
-                              attribution = &quot;&quot;) %&gt;% mapview:::mapViewLayersControl(names = c(&quot;NHDPlus&quot;))
-m
-</code></pre>
-
+<span class="n">m</span> <span class="o">&lt;-</span> <span class="nf">mapview</span><span class="p">(</span><span class="n">stations_sf</span><span class="p">)</span>
+<span class="n">m</span><span class="o">@</span><span class="n">map</span> <span class="o">=</span> <span class="n">m</span><span class="o">@</span><span class="n">map</span> <span class="o">%&gt;%</span> <span class="nf">addWMSTiles</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="s">&#39;NHDPlus&#39;</span><span class="p">,</span>
+                              <span class="s">&#34;https://watersgeo.epa.gov/arcgis/services/NHDPlus_NP21/NHDSnapshot_NP21/MapServer/WmsServer?&#34;</span><span class="p">,</span>
+                              <span class="n">layers</span>  <span class="o">=</span> <span class="m">4</span><span class="p">,</span>
+                              <span class="n">options</span> <span class="o">=</span> <span class="nf">WMSTileOptions</span><span class="p">(</span><span class="n">format</span> <span class="o">=</span> <span class="s">&#34;image/png&#34;</span><span class="p">,</span> <span class="n">transparent</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span>
+                              <span class="n">attribution</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="n">mapview</span><span class="o">:::</span><span class="nf">mapViewLayersControl</span><span class="p">(</span><span class="n">names</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;NHDPlus&#34;</span><span class="p">))</span>
+<span class="n">m</span>
+</code></pre></div>
       </article>
 
       <ul class="pager blog-pager">
@@ -244,20 +245,25 @@ m
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'mhweber';
-    var disqus_identifier = 'https:\/\/mhweber.github.io\/2018\/11\/09\/adding-wms-basemap-in-r-with-mapview\/';
-    var disqus_title = 'Adding WMS basemap in R with mapview';
-    var disqus_url = 'https:\/\/mhweber.github.io\/2018\/11\/09\/adding-wms-basemap-in-r-with-mapview\/';
-
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mhweber" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
           </div>
         
       
@@ -343,7 +349,7 @@ m
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.22</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.88.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

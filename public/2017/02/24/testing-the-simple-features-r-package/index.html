@@ -8,9 +8,9 @@
   <title>Testing the simple features R package</title>
   <meta property="og:title" content="Testing the simple features R package" />
   <meta name="twitter:title" content="Testing the simple features R package" />
-  <meta name="description" content="Load and look at basics of simple features package library(devtools) # install_github(&quot;edzer/sfr&quot;) library(sf)  ## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3  nc &lt;- st_read(system.file(&quot;shape/nc.shp&quot;, package=&quot;sf&quot;))  ## Reading layer `nc&#39; from data source `C:\Users\mweber\R\library\sf\shape\nc.shp&#39; using driver `ESRI Shapefile&#39; ## converted into: MULTIPOLYGON ## Simple feature collection with 100 features and 14 fields ## geometry type: MULTIPOLYGON ## dimension: XY ## bbox: xmin: -84.32385 ymin: 33.88199 xmax: -75.">
-  <meta property="og:description" content="Load and look at basics of simple features package library(devtools) # install_github(&quot;edzer/sfr&quot;) library(sf)  ## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3  nc &lt;- st_read(system.file(&quot;shape/nc.shp&quot;, package=&quot;sf&quot;))  ## Reading layer `nc&#39; from data source `C:\Users\mweber\R\library\sf\shape\nc.shp&#39; using driver `ESRI Shapefile&#39; ## converted into: MULTIPOLYGON ## Simple feature collection with 100 features and 14 fields ## geometry type: MULTIPOLYGON ## dimension: XY ## bbox: xmin: -84.32385 ymin: 33.88199 xmax: -75.">
-  <meta name="twitter:description" content="Load and look at basics of simple features package library(devtools) # install_github(&quot;edzer/sfr&quot;) library(sf)  ## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3  nc &lt;- …">
+  <meta name="description" content="Load and look at basics of simple features package library(devtools) # install_github(&#34;edzer/sfr&#34;) library(sf) ## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3nc &lt;- st_read(system.file(&#34;shape/nc.shp&#34;, package=&#34;sf&#34;)) ## Reading layer `nc&#39; from data source `C:\Users\mweber\R\library\sf\shape\nc.shp&#39; using driver `ESRI Shapefile&#39;## converted into: MULTIPOLYGON## Simple feature collection with 100 features and 14 fields## geometry type: MULTIPOLYGON## dimension: XY## bbox: xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965## epsg (SRID): 4267## proj4string: &#43;proj=longlat &#43;datum=NAD27 &#43;no_defsclass(nc) ## [1] &quot;sf&quot; &quot;data.">
+  <meta property="og:description" content="Load and look at basics of simple features package library(devtools) # install_github(&#34;edzer/sfr&#34;) library(sf) ## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3nc &lt;- st_read(system.file(&#34;shape/nc.shp&#34;, package=&#34;sf&#34;)) ## Reading layer `nc&#39; from data source `C:\Users\mweber\R\library\sf\shape\nc.shp&#39; using driver `ESRI Shapefile&#39;## converted into: MULTIPOLYGON## Simple feature collection with 100 features and 14 fields## geometry type: MULTIPOLYGON## dimension: XY## bbox: xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965## epsg (SRID): 4267## proj4string: &#43;proj=longlat &#43;datum=NAD27 &#43;no_defsclass(nc) ## [1] &quot;sf&quot; &quot;data.">
+  <meta name="twitter:description" content="Load and look at basics of simple features package library(devtools) # install_github(&#34;edzer/sfr&#34;) library(sf) ## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3nc &lt;- …">
   <meta name="author" content="Marc Weber"/>
   <link href='https://mhweber.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="https://mhweber.github.io/img/MeBiking.png" />
@@ -22,7 +22,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Marc Weber" />
 
-  <meta name="generator" content="Hugo 0.22" />
+  <meta name="generator" content="Hugo 0.88.1" />
   <link rel="canonical" href="https://mhweber.github.io/2017/02/24/testing-the-simple-features-r-package/" />
   <link rel="alternate" href="https://mhweber.github.io/index.xml" type="application/rss+xml" title="Marc Weber">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -86,12 +86,16 @@
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-99730307-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-99730307-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 
@@ -180,7 +184,7 @@ ga('send', 'pageview');
                 
                 
                   <span class="post-meta">
-  Posted on February 24, 2017
+  
   
 </span>
 
@@ -199,22 +203,13 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        
-
-<h2 id="load-and-look-at-basics-of-simple-features-package">Load and look at basics of simple features package</h2>
-
-<pre><code class="language-r">library(devtools)
-# install_github(&quot;edzer/sfr&quot;)
-library(sf)
-</code></pre>
-
-<pre><code>## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3
-</code></pre>
-
-<pre><code class="language-r">nc &lt;- st_read(system.file(&quot;shape/nc.shp&quot;, package=&quot;sf&quot;))
-</code></pre>
-
-<pre><code>## Reading layer `nc' from data source `C:\Users\mweber\R\library\sf\shape\nc.shp' using driver `ESRI Shapefile'
+        <h2 id="load-and-look-at-basics-of-simple-features-package">Load and look at basics of simple features package</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">devtools</span><span class="p">)</span>
+<span class="c1"># install_github(&#34;edzer/sfr&#34;)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">nc</span> <span class="o">&lt;-</span> <span class="nf">st_read</span><span class="p">(</span><span class="nf">system.file</span><span class="p">(</span><span class="s">&#34;shape/nc.shp&#34;</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s">&#34;sf&#34;</span><span class="p">))</span>
+</code></pre></div><pre tabindex="0"><code>## Reading layer `nc' from data source `C:\Users\mweber\R\library\sf\shape\nc.shp' using driver `ESRI Shapefile'
 ## converted into: MULTIPOLYGON
 ## Simple feature collection with 100 features and 14 fields
 ## geometry type:  MULTIPOLYGON
@@ -222,24 +217,12 @@ library(sf)
 ## bbox:           xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
 ## epsg (SRID):    4267
 ## proj4string:    +proj=longlat +datum=NAD27 +no_defs
-</code></pre>
-
-<pre><code class="language-r">class(nc)
-</code></pre>
-
-<pre><code>## [1] &quot;sf&quot;         &quot;data.frame&quot;
-</code></pre>
-
-<pre><code class="language-r">attr(nc, &quot;sf_column&quot;)
-</code></pre>
-
-<pre><code>## [1] &quot;geometry&quot;
-</code></pre>
-
-<pre><code class="language-r">methods(class = &quot;sf&quot;)
-</code></pre>
-
-<pre><code>##  [1] [                 aggregate         cbind            
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">class</span><span class="p">(</span><span class="n">nc</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>## [1] &quot;sf&quot;         &quot;data.frame&quot;
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">attr</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="s">&#34;sf_column&#34;</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>## [1] &quot;geometry&quot;
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">methods</span><span class="p">(</span><span class="n">class</span> <span class="o">=</span> <span class="s">&#34;sf&#34;</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>##  [1] [                 aggregate         cbind            
 ##  [4] coerce            initialize        plot             
 ##  [7] print             rbind             show             
 ## [10] slotsFromS3       st_agr            st_agr&lt;-         
@@ -252,12 +235,8 @@ library(sf)
 ## [31] st_segmentize     st_simplify       st_sym_difference
 ## [34] st_transform      st_triangulate    st_union         
 ## see '?methods' for accessing help and source code
-</code></pre>
-
-<pre><code class="language-r">head(nc)
-</code></pre>
-
-<pre><code>## Simple feature collection with 6 features and 14 fields
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">head</span><span class="p">(</span><span class="n">nc</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>## Simple feature collection with 6 features and 14 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: -81.74107 ymin: 36.07282 xmax: -75.77316 ymax: 36.58965
@@ -277,38 +256,28 @@ library(sf)
 ## 4     1     123   830     2     145 MULTIPOLYGON(((-76.00897216...
 ## 5     9    1066  1606     3    1197 MULTIPOLYGON(((-77.21766662...
 ## 6     7     954  1838     5    1237 MULTIPOLYGON(((-76.74506378...
-</code></pre>
+</code></pre><h3 id="download-oregon-counties-from-oregon-explorer-data-and-load-into-simple-features-object">Download Oregon counties from Oregon Explorer data and load into simple features object</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span>
+<span class="c1"># Get the url for zip file, download and unzip</span>
+<span class="c1"># counties_zip &lt;- &#39;http://oe.oregonexplorer.info/ExternalContent/SpatialDataforDownload/orcnty2015.zip&#39;</span>
+<span class="c1"># download.file(counties_zip, &#39;C:/users/mweber/temp/OR_counties.zip&#39;)</span>
+<span class="c1"># unzip(&#39;C:/users/mweber/temp/OR_counties.zip&#39;)</span>
 
-<h3 id="download-oregon-counties-from-oregon-explorer-data-and-load-into-simple-features-object">Download Oregon counties from Oregon Explorer data and load into simple features object</h3>
-
-<pre><code class="language-r">library(sf)
-# Get the url for zip file, download and unzip
-# counties_zip &lt;- 'http://oe.oregonexplorer.info/ExternalContent/SpatialDataforDownload/orcnty2015.zip'
-# download.file(counties_zip, 'C:/users/mweber/temp/OR_counties.zip')
-# unzip('C:/users/mweber/temp/OR_counties.zip')
-
-# Now read into a simple features object in R
-counties &lt;- st_read('orcntypoly.shp')
-</code></pre>
-
-<pre><code>## Reading layer `orcntypoly' from data source `J:\GitProjects\R-Spatial-Tutorials\orcntypoly.shp' using driver `ESRI Shapefile'
+<span class="c1"># Now read into a simple features object in R</span>
+<span class="n">counties</span> <span class="o">&lt;-</span> <span class="nf">st_read</span><span class="p">(</span><span class="s">&#39;orcntypoly.shp&#39;</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>## Reading layer `orcntypoly' from data source `J:\GitProjects\R-Spatial-Tutorials\orcntypoly.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 36 features and 12 fields
 ## geometry type:  POLYGON
 ## dimension:      XY
 ## bbox:           xmin: -124.7038 ymin: 41.99208 xmax: -116.4632 ymax: 46.29239
 ## epsg (SRID):    4269
 ## proj4string:    +proj=longlat +datum=NAD83 +no_defs
-</code></pre>
-
-<pre><code class="language-r"># simple plot with base R
-plot(counties[1], main='Oregon Counties', axes=TRUE)
-# the data frame
-head(counties[,1:5])
-</code></pre>
-
-<p><img src="/img/OR-counties.png" alt="plot of counties" /></p>
-
-<pre><code>## Simple feature collection with 6 features and 5 fields
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="c1"># simple plot with base R</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">counties[1]</span><span class="p">,</span> <span class="n">main</span><span class="o">=</span><span class="s">&#39;Oregon Counties&#39;</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="c1"># the data frame</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">counties[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="n">]</span><span class="p">)</span>
+</code></pre></div><p><img src="/img/OR-counties.png" alt="plot of counties"></p>
+<pre tabindex="0"><code>## Simple feature collection with 6 features and 5 fields
 ## geometry type:  POLYGON
 ## dimension:      XY
 ## bbox:           xmin: -124.7038 ymin: 41.99253 xmax: -119.3594 ymax: 43.61744
@@ -328,62 +297,41 @@ head(counties[,1:5])
 ## 4 POLYGON((-123.811553228 42....
 ## 5 POLYGON((-121.332969065 43....
 ## 6 POLYGON((-119.896580665 43....
-</code></pre>
-
-<h3 id="download-oregon-cities-from-oregon-explorer-data-and-load-into-simple-features-object">Download Oregon cities from Oregon Explorer data and load into simple features object</h3>
-
-<pre><code class="language-r"># cities_zip &lt;- 'http://navigator.state.or.us/sdl/data/shapefile/m2/cities.zip'
-# download.file(cities_zip, 'C:/users/mweber/temp/OR_cities.zip')
-# unzip('C:/users/mweber/temp/OR_cities.zip')
-cities &lt;- st_read(&quot;cities.shp&quot;)
-</code></pre>
-
-<pre><code>## Reading layer `cities' from data source `J:\GitProjects\R-Spatial-Tutorials\cities.shp' using driver `ESRI Shapefile'
+</code></pre><h3 id="download-oregon-cities-from-oregon-explorer-data-and-load-into-simple-features-object">Download Oregon cities from Oregon Explorer data and load into simple features object</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="c1"># cities_zip &lt;- &#39;http://navigator.state.or.us/sdl/data/shapefile/m2/cities.zip&#39;</span>
+<span class="c1"># download.file(cities_zip, &#39;C:/users/mweber/temp/OR_cities.zip&#39;)</span>
+<span class="c1"># unzip(&#39;C:/users/mweber/temp/OR_cities.zip&#39;)</span>
+<span class="n">cities</span> <span class="o">&lt;-</span> <span class="nf">st_read</span><span class="p">(</span><span class="s">&#34;cities.shp&#34;</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>## Reading layer `cities' from data source `J:\GitProjects\R-Spatial-Tutorials\cities.shp' using driver `ESRI Shapefile'
 ## Simple feature collection with 898 features and 6 fields
 ## geometry type:  POINT
 ## dimension:      XY
 ## bbox:           xmin: 238691 ymin: 92141.21 xmax: 2255551 ymax: 1641591
 ## epsg (SRID):    NA
 ## proj4string:    +proj=lcc +lat_1=43 +lat_2=45.5 +lat_0=41.75 +lon_0=-120.5 +x_0=399999.9999984001 +y_0=0 +datum=NAD83 +units=ft +no_defs
-</code></pre>
-
-<pre><code class="language-r">plot(cities[1])
-</code></pre>
-
-<p><img src="/img/cities.png" alt="" /></p>
-
-<h3 id="construct-a-spatial-object-in-r-from-a-data-frame-with-coordinate-information-we-ll-use-the-built-in-dataset-quakes-with-information-on-earthquakes-off-the-coast-of-fiji-construct-spatial-points-sp-spatial-points-data-frame-and-then-promote-it-to-a-simple-features-object">Construct a spatial object in R from a data frame with coordinate information - we&rsquo;ll use the built-in dataset &lsquo;quakes&rsquo; with information on earthquakes off the coast of Fiji.  Construct spatial points sp, spatial points data frame, and then promote it to a simple features object.</h3>
-
-<pre><code class="language-r">library(sp)
-data(quakes)
-head(quakes)
-</code></pre>
-
-<pre><code>##      lat   long depth mag stations
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">plot</span><span class="p">(</span><span class="n">cities[1]</span><span class="p">)</span>
+</code></pre></div><p><img src="/img/cities.png" alt=""></p>
+<h3 id="construct-a-spatial-object-in-r-from-a-data-frame-with-coordinate-information---well-use-the-built-in-dataset-quakes-with-information-on-earthquakes-off-the-coast-of-fiji--construct-spatial-points-sp-spatial-points-data-frame-and-then-promote-it-to-a-simple-features-object">Construct a spatial object in R from a data frame with coordinate information - we&rsquo;ll use the built-in dataset &lsquo;quakes&rsquo; with information on earthquakes off the coast of Fiji.  Construct spatial points sp, spatial points data frame, and then promote it to a simple features object.</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
+<span class="nf">data</span><span class="p">(</span><span class="n">quakes</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">quakes</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>##      lat   long depth mag stations
 ## 1 -20.42 181.62   562 4.8       41
 ## 2 -20.62 181.03   650 4.2       15
 ## 3 -26.00 184.10    42 5.4       43
 ## 4 -17.97 181.66   626 4.1       19
 ## 5 -20.42 181.96   649 4.0       11
 ## 6 -19.68 184.31   195 4.0       12
-</code></pre>
-
-<pre><code class="language-r">class(quakes)
-</code></pre>
-
-<pre><code>## [1] &quot;data.frame&quot;
-</code></pre>
-
-<pre><code class="language-r"># Data frames consist of rows of observations on columns of values for variables of interest. Create the coordinate reference system to use
-llCRS &lt;- CRS(&quot;+proj=longlat +datum=NAD83&quot;)
-# now stitch together the data frame coordinate fields and the  
-# projection string to createa SpatialPoints object
-quakes_sp &lt;- SpatialPoints(quakes[, c('long', 'lat')], proj4string = llCRS)
-# Summary method gives a description of the spatial object in R. Summary works on pretty much all objects in R - for spatial data, gives us basic information about the projection, coordinates, and data for an sp object if it's a spatial data frame object.
-summary(quakes_sp)
-</code></pre>
-
-<pre><code>## Object of class SpatialPoints
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">class</span><span class="p">(</span><span class="n">quakes</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>## [1] &quot;data.frame&quot;
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="c1"># Data frames consist of rows of observations on columns of values for variables of interest. Create the coordinate reference system to use</span>
+<span class="n">llCRS</span> <span class="o">&lt;-</span> <span class="nf">CRS</span><span class="p">(</span><span class="s">&#34;+proj=longlat +datum=NAD83&#34;</span><span class="p">)</span>
+<span class="c1"># now stitch together the data frame coordinate fields and the  </span>
+<span class="c1"># projection string to createa SpatialPoints object</span>
+<span class="n">quakes_sp</span> <span class="o">&lt;-</span> <span class="nf">SpatialPoints</span><span class="p">(</span><span class="n">quakes[</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;long&#39;</span><span class="p">,</span> <span class="s">&#39;lat&#39;</span><span class="p">)</span><span class="n">]</span><span class="p">,</span> <span class="n">proj4string</span> <span class="o">=</span> <span class="n">llCRS</span><span class="p">)</span>
+<span class="c1"># Summary method gives a description of the spatial object in R. Summary works on pretty much all objects in R - for spatial data, gives us basic information about the projection, coordinates, and data for an sp object if it&#39;s a spatial data frame object.</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">quakes_sp</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>## Object of class SpatialPoints
 ## Coordinates:
 ##         min    max
 ## long 165.67 188.13
@@ -392,30 +340,18 @@ summary(quakes_sp)
 ## proj4string :
 ## [+proj=longlat +datum=NAD83 +ellps=GRS80 +towgs84=0,0,0]
 ## Number of points: 1000
-</code></pre>
-
-<pre><code class="language-r"># we can use methods in sp library to extract certain information from objects
-bbox(quakes_sp)
-</code></pre>
-
-<pre><code>##         min    max
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="c1"># we can use methods in sp library to extract certain information from objects</span>
+<span class="nf">bbox</span><span class="p">(</span><span class="n">quakes_sp</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>##         min    max
 ## long 165.67 188.13
 ## lat  -38.59 -10.72
-</code></pre>
-
-<pre><code class="language-r">proj4string(quakes_sp)
-</code></pre>
-
-<pre><code>## [1] &quot;+proj=longlat +datum=NAD83 +ellps=GRS80 +towgs84=0,0,0&quot;
-</code></pre>
-
-<pre><code class="language-r"># now promote the SpatialPoints to a SpatialPointsDataFrame
-quakes_coords &lt;- cbind(quakes$long, quakes$lat)
-quakes_sp_df &lt;- SpatialPointsDataFrame(quakes_coords, quakes, proj4string=llCRS, match.ID=TRUE)
-summary(quakes_sp_df) # attributes folded back in
-</code></pre>
-
-<pre><code>## Object of class SpatialPointsDataFrame
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">proj4string</span><span class="p">(</span><span class="n">quakes_sp</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>## [1] &quot;+proj=longlat +datum=NAD83 +ellps=GRS80 +towgs84=0,0,0&quot;
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="c1"># now promote the SpatialPoints to a SpatialPointsDataFrame</span>
+<span class="n">quakes_coords</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">quakes</span><span class="o">$</span><span class="n">long</span><span class="p">,</span> <span class="n">quakes</span><span class="o">$</span><span class="n">lat</span><span class="p">)</span>
+<span class="n">quakes_sp_df</span> <span class="o">&lt;-</span> <span class="nf">SpatialPointsDataFrame</span><span class="p">(</span><span class="n">quakes_coords</span><span class="p">,</span> <span class="n">quakes</span><span class="p">,</span> <span class="n">proj4string</span><span class="o">=</span><span class="n">llCRS</span><span class="p">,</span> <span class="n">match.ID</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">quakes_sp_df</span><span class="p">)</span> <span class="c1"># attributes folded back in</span>
+</code></pre></div><pre tabindex="0"><code>## Object of class SpatialPointsDataFrame
 ## Coordinates:
 ##              min    max
 ## coords.x1 165.67 188.13
@@ -439,27 +375,19 @@ summary(quakes_sp_df) # attributes folded back in
 ##  Mean   : 33.42  
 ##  3rd Qu.: 42.00  
 ##  Max.   :132.00
-</code></pre>
-
-<pre><code class="language-r">str(quakes_sp_df, max.level=2)
-</code></pre>
-
-<pre><code>## Formal class 'SpatialPointsDataFrame' [package &quot;sp&quot;] with 5 slots
-##   ..@ data       :'data.frame':  1000 obs. of  5 variables:
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">str</span><span class="p">(</span><span class="n">quakes_sp_df</span><span class="p">,</span> <span class="n">max.level</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>## Formal class 'SpatialPointsDataFrame' [package &quot;sp&quot;] with 5 slots
+##   ..@ data       :'data.frame':	1000 obs. of  5 variables:
 ##   ..@ coords.nrs : num(0) 
 ##   ..@ coords     : num [1:1000, 1:2] 182 181 184 182 182 ...
 ##   .. ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##   ..@ bbox       : num [1:2, 1:2] 165.7 -38.6 188.1 -10.7
 ##   .. ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##   ..@ proj4string:Formal class 'CRS' [package &quot;sp&quot;] with 1 slot
-</code></pre>
-
-<pre><code class="language-r"># Convert to simple features
-quakes_sf &lt;- st_as_sf(quakes_sp_df)
-plot(quakes_sp_df[,3],cex=log(quakes_sf$depth/100), pch=21, bg=24, lwd=.4, axes=T) 
-</code></pre>
-
-<p><img src="/img/quakes.png" alt="plot of quakes" /></p>
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="c1"># Convert to simple features</span>
+<span class="n">quakes_sf</span> <span class="o">&lt;-</span> <span class="nf">st_as_sf</span><span class="p">(</span><span class="n">quakes_sp_df</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">quakes_sp_df[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span><span class="p">,</span><span class="n">cex</span><span class="o">=</span><span class="nf">log</span><span class="p">(</span><span class="n">quakes_sf</span><span class="o">$</span><span class="n">depth</span><span class="o">/</span><span class="m">100</span><span class="p">),</span> <span class="n">pch</span><span class="o">=</span><span class="m">21</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="m">24</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">.4</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="bp">T</span><span class="p">)</span> 
+</code></pre></div><p><img src="/img/quakes.png" alt="plot of quakes"></p>
 
       </article>
 
@@ -480,20 +408,25 @@ plot(quakes_sp_df[,3],cex=log(quakes_sf$depth/100), pch=21, bg=24, lwd=.4, axes=
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'mhweber';
-    var disqus_identifier = 'https:\/\/mhweber.github.io\/2017\/02\/24\/testing-the-simple-features-r-package\/';
-    var disqus_title = 'Testing the simple features R package';
-    var disqus_url = 'https:\/\/mhweber.github.io\/2017\/02\/24\/testing-the-simple-features-r-package\/';
-
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mhweber" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
           </div>
         
       
@@ -579,7 +512,7 @@ plot(quakes_sp_df[,3],cex=log(quakes_sf$depth/100), pch=21, bg=24, lwd=.4, axes=
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.22</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.88.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

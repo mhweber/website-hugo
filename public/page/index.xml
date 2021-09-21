@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on Marc Weber</title>
@@ -6,18 +6,14 @@
     <description>Recent content in Pages on Marc Weber</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>mweber36@gmail.com (Marc Weber)</managingEditor>
-    <webMaster>mweber36@gmail.com (Marc Weber)</webMaster>
-    
-	<atom:link href="https://mhweber.github.io/page/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <webMaster>mweber36@gmail.com (Marc Weber)</webMaster><atom:link href="https://mhweber.github.io/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About me</title>
       <link>https://mhweber.github.io/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/page/about/</guid>
-      <description>I’m a geographer working at the US EPA’s Western Ecology Division in Corvallis, OR. My work focuses on using spatial analysis in the realm of aquatic ecology, and particularly using spatial analysis in support of the EPA’s National Aquatic Resource Surveys. A particular focus of my work is geospatial analysis in R and Python, and partiularly the use of open source approaches in these two programming languages.</description>
+      <description>I’m a geographer working at the US EPA’s Pacific Ecological Systems Division in Corvallis, OR. My research interests include spatial analysis in R and Python, Geographic Information Science (GIS), aquatic ecology,remote sensing, open source science and environmental modeling. Much of my work focuses on using spatial analysis in support of the EPA’s National Aquatic Resource Surveys.</description>
     </item>
     
     <item>

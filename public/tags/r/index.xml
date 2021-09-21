@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Marc Weber</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>mweber36@gmail.com (Marc Weber)</managingEditor>
     <webMaster>mweber36@gmail.com (Marc Weber)</webMaster>
-    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://mhweber.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mhweber.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Trying Out Bookdown and Publishing to GitHub Pages</title>
       <link>https://mhweber.github.io/2020/02/12/trying-out-bookdown-and-publishing-to-github-pages/</link>
@@ -19,10 +15,9 @@
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2020/02/12/trying-out-bookdown-and-publishing-to-github-pages/</guid>
       <description>I finally decided to try creating a bookdown project and see if I could figure out hosting it on GitHub Pages. The steps I followed were:
- Create a new empty GitHub repo on GitHub without a readme
- Create a new local R Project in a new directory as project type Book Project using bookdown
- Initialize a .git repository for the project after it is created
- Using code snippets on the GitHub repo you just created (initial page that shows up when you create the empty repository):</description>
+  Create a new empty GitHub repo on GitHub without a readme
+  Create a new local R Project in a new directory as project type Book Project using bookdown
+  Initialize a .git repository for the project after it is created</description>
     </item>
     
     <item>
@@ -32,7 +27,7 @@
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2019/05/28/testing-the-rnassqs-r-package-with-willamette-basin-data/</guid>
       <description>Pull in data via API for Survey data This script uses the NASS API to query the NASS Quickstats service for historic acres harvested of primary crop groups in Willamette basin counties in Oregon from 1969-2013. An example of using the NASS Quickstats API to pull in and examine crop data in Willamette basin.
-library(dplyr)  ## Warning: package &#39;dplyr&#39; was built under R version 3.5.2  library(tibble) library(tidyr) library(rnassqs) library(lubridate) library(readr) years &amp;lt;- seq(as.</description>
+library(dplyr) ## Warning: package &#39;dplyr&#39; was built under R version 3.5.2library(tibble) library(tidyr) library(rnassqs) library(lubridate) library(readr) years &amp;lt;- seq(as.</description>
     </item>
     
     <item>
@@ -43,7 +38,7 @@ library(dplyr)  ## Warning: package &#39;dplyr&#39; was built under R version 3.
       <guid>https://mhweber.github.io/2018/11/09/adding-wms-basemap-in-r-with-mapview/</guid>
       <description>Recently I wanted to be able to add a custom basemap of NHDPlus features to mapview leaflet maps. It&amp;rsquo;s not straitforward out of the box in mapview, but I found the helpful tips to do it here and here.
 Below I add the WMS service from EPA Waters along with USGS StreamGage stations in Benton County, OR using the dataRetrieval package.
-library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &amp;lt;- readNWISdata(stateCd=&amp;quot;Oregon&amp;quot;, countyCd=&amp;quot;Benton&amp;quot;) # DataRetrival returns objects as &#39;attributes&#39; - things like the url used, site metadata, site info, etc - just use attributes(Durham_Stations) to examine siteInfo &amp;lt;- attr(Stations , &amp;quot;siteInfo&amp;quot;) stations_sf = st_as_sf(siteInfo, coords = c(&amp;quot;dec_lon_va&amp;quot;, &amp;quot;dec_lat_va&amp;quot;), crs = 4269,agr = &amp;quot;constant&amp;quot;) m &amp;lt;- mapview(stations_sf) m@map = m@map %&amp;gt;% addWMSTiles(group = &#39;NHDPlus&#39;, &amp;quot;https://watersgeo.</description>
+library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &amp;lt;- readNWISdata(stateCd=&amp;#34;Oregon&amp;#34;, countyCd=&amp;#34;Benton&amp;#34;) # DataRetrival returns objects as &amp;#39;attributes&amp;#39; - things like the url used, site metadata, site info, etc - just use attributes(Durham_Stations) to examine siteInfo &amp;lt;- attr(Stations , &amp;#34;siteInfo&amp;#34;) stations_sf = st_as_sf(siteInfo, coords = c(&amp;#34;dec_lon_va&amp;#34;, &amp;#34;dec_lat_va&amp;#34;), crs = 4269,agr = &amp;#34;constant&amp;#34;) m &amp;lt;- mapview(stations_sf) m@map = m@map %&amp;gt;% addWMSTiles(group = &amp;#39;NHDPlus&amp;#39;, &amp;#34;https://watersgeo.</description>
     </item>
     
     <item>
@@ -61,7 +56,7 @@ library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &a
       <pubDate>Fri, 24 Feb 2017 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2017/02/24/testing-the-simple-features-r-package/</guid>
-      <description>Load and look at basics of simple features package library(devtools) # install_github(&amp;quot;edzer/sfr&amp;quot;) library(sf)  ## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3  nc &amp;lt;- st_read(system.file(&amp;quot;shape/nc.shp&amp;quot;, package=&amp;quot;sf&amp;quot;))  ## Reading layer `nc&#39; from data source `C:\Users\mweber\R\library\sf\shape\nc.shp&#39; using driver `ESRI Shapefile&#39; ## converted into: MULTIPOLYGON ## Simple feature collection with 100 features and 14 fields ## geometry type: MULTIPOLYGON ## dimension: XY ## bbox: xmin: -84.32385 ymin: 33.88199 xmax: -75.</description>
+      <description>Load and look at basics of simple features package library(devtools) # install_github(&amp;#34;edzer/sfr&amp;#34;) library(sf) ## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3nc &amp;lt;- st_read(system.file(&amp;#34;shape/nc.shp&amp;#34;, package=&amp;#34;sf&amp;#34;)) ## Reading layer `nc&#39; from data source `C:\Users\mweber\R\library\sf\shape\nc.shp&#39; using driver `ESRI Shapefile&#39;## converted into: MULTIPOLYGON## Simple feature collection with 100 features and 14 fields## geometry type: MULTIPOLYGON## dimension: XY## bbox: xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965## epsg (SRID): 4267## proj4string: +proj=longlat +datum=NAD27 +no_defsclass(nc) ## [1] &amp;quot;sf&amp;quot; &amp;quot;data.</description>
     </item>
     
     <item>
@@ -70,7 +65,7 @@ library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &a
       <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2016/12/02/read-postgis-in-r/</guid>
-      <description> Working with Postgres / PostGIS more now and playing with reading and writing from R and Python. Here&amp;rsquo;s snippet showing read in of PostGIS in R:  </description>
+      <description>Working with Postgres / PostGIS more now and playing with reading and writing from R and Python. Here&amp;rsquo;s snippet showing read in of PostGIS in R:  </description>
     </item>
     
     <item>
@@ -79,7 +74,7 @@ library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &a
       <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2016/03/10/r-lookup/</guid>
-      <description> Using match and indexing to create a lookup in R This code takes a lookup table and applies it to a data frame, updating only values for records that occur in the lookup table using indexing and match:
+      <description>Using match and indexing to create a lookup in R This code takes a lookup table and applies it to a data frame, updating only values for records that occur in the lookup table using indexing and match:
  </description>
     </item>
     

@@ -24,7 +24,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Marc Weber" />
 
-  <meta name="generator" content="Hugo 0.22" />
+  <meta name="generator" content="Hugo 0.88.1" />
   <link rel="canonical" href="https://mhweber.github.io/2017/07/14/geopandas-tutorial/" />
   <link rel="alternate" href="https://mhweber.github.io/index.xml" type="application/rss+xml" title="Marc Weber">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -88,12 +88,16 @@
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-99730307-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-99730307-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 
@@ -182,7 +186,7 @@ ga('send', 'pageview');
                 
                 
                   <span class="post-meta">
-  Posted on July 14, 2017
+  
   
 </span>
 
@@ -202,43 +206,33 @@ ga('send', 'pageview');
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>This is an implementation of the excellent PostGIS / geopandas tutorial <a href="https://geohackweek.github.io/vector/06-geopandas-advanced/">here</a> using NHDPlus WBD polygons for PNW.  All the ideas and methods are from this tutorial, simply implementing with a different dataset and in Oregon.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
-<pre><code class="language-python">%matplotlib inline
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">psycopg2</span>
 
-import os
-import json
-import psycopg2
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># The two statemens below are used mainly to set up a plotting</span>
+<span class="c1"># default style that&#39;s better than the default from matplotlib</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;bmh&#39;</span><span class="p">)</span>
 
-import matplotlib.pyplot as plt
-# The two statemens below are used mainly to set up a plotting
-# default style that's better than the default from matplotlib
-import seaborn as sns
-plt.style.use('bmh')
-
-from shapely.geometry import Point
-import pandas as pd
-import geopandas as gpd
-from geopandas import GeoSeries, GeoDataFrame
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">from</span> <span class="nn">geopandas</span> <span class="kn">import</span> <span class="n">GeoSeries</span><span class="p">,</span> <span class="n">GeoDataFrame</span>
+</code></pre></div><p>Connect to PostGIS database of NHDPlus, select WBD features that are in Oregon, and load into a geopandas geodataframe.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">con</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">=</span><span class="s2">&#34;nhdplus&#34;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s2">&#34;postgres&#34;</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="s2">&#34;postgres&#34;</span><span class="p">,</span><span class="n">host</span><span class="o">=</span><span class="s2">&#34;localhost&#34;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="s2">&#34;5432&#34;</span><span class="p">)</span>
+<span class="n">sql</span><span class="o">=</span> <span class="s2">&#34;SELECT * FROM wbd_subwatershed WHERE states = &#39;OR&#39;&#34;</span>
+<span class="n">wbd</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="o">.</span><span class="n">from_postgis</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">geom_col</span><span class="o">=</span><span class="s1">&#39;geom&#39;</span><span class="p">,</span><span class="n">crs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;init&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;epsg:4326&#39;</span><span class="p">})</span>
+<span class="n">con</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">wbd</span><span class="p">)</span>
+</code></pre></div><pre><code>3875
 </code></pre>
-
-<p>Connect to PostGIS database of NHDPlus, select WBD features that are in Oregon, and load into a geopandas geodataframe.</p>
-
-<pre><code class="language-python">con = psycopg2.connect(database=&quot;nhdplus&quot;, user=&quot;postgres&quot;,password=&quot;postgres&quot;,host=&quot;localhost&quot;,port=&quot;5432&quot;)
-sql= &quot;SELECT * FROM wbd_subwatershed WHERE states = 'OR'&quot;
-wbd=gpd.GeoDataFrame.from_postgis(sql, con, geom_col='geom',crs={'init': u'epsg:4326'})
-con.close()
-len(wbd)
-</code></pre>
-
-<pre><code>3875
-</code></pre>
-
 <p>Check out first feature using .iloc (could use wbd.head() also)</p>
-
-<pre><code class="language-python">wbd.iloc[0]
-</code></pre>
-
-<pre><code>gid                                                         793
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">wbd</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div><pre><code>gid                                                         793
 objectid                                                  95489
 huc_8                                                  17100306
 huc_10                                               1710030604
@@ -263,145 +257,65 @@ gaz_id                                                   -71052
 geom          (POLYGON ((-124.3979671835871 42.5876281986771...
 Name: 0, dtype: object
 </code></pre>
-
 <p>Make a map of WBD polygons and color by 8-digit HUC number</p>
-
-<pre><code class="language-python">wbd.plot(column='huc_8', cmap='Paired', categorical=True, figsize=(14,6))
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">wbd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;huc_8&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Paired&#39;</span><span class="p">,</span> <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+</code></pre></div><pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1fe76d30&gt;
 </code></pre>
-
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1fe76d30&gt;
-</code></pre>
-
-<p><img src="/img/huc12.png" alt="" /></p>
-
+<p><img src="/img/huc12.png" alt=""></p>
 <p>Now try dissolving WBD HUC12 polygons using the HUC_8 field to make new HUC8 geodataframe.  We&rsquo;ll keep all the HUC ID and name fields in resulting dissolved geodataframe.</p>
-
-<pre><code class="language-python">type(wbd)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nb">type</span><span class="p">(</span><span class="n">wbd</span><span class="p">)</span>
+</code></pre></div><pre><code>geopandas.geodataframe.GeoDataFrame
 </code></pre>
-
-<pre><code>geopandas.geodataframe.GeoDataFrame
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">huc8</span> <span class="o">=</span> <span class="n">wbd</span><span class="o">.</span><span class="n">dissolve</span><span class="p">(</span><span class="s1">&#39;huc_8&#39;</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">huc8</span><span class="p">)</span>
+</code></pre></div><pre><code>79
 </code></pre>
-
-<pre><code class="language-python">huc8 = wbd.dissolve('huc_8')
-len(huc8)
-</code></pre>
-
-<pre><code>79
-</code></pre>
-
 <p>Re-apply crs to file (and verify it&rsquo;s missing first and it&rsquo;s back after)</p>
-
-<pre><code class="language-python">print huc8.crs
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nb">print</span> <span class="n">huc8</span><span class="o">.</span><span class="n">crs</span>
+</code></pre></div><pre><code>None
 </code></pre>
-
-<pre><code>None
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">huc8</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="n">wbd</span><span class="o">.</span><span class="n">crs</span>
+<span class="nb">print</span> <span class="n">huc8</span><span class="o">.</span><span class="n">crs</span>
+</code></pre></div><pre><code>{'init': u'epsg:4326'}
 </code></pre>
-
-<pre><code class="language-python">huc8.crs = wbd.crs
-print huc8.crs
-</code></pre>
-
-<pre><code>{'init': u'epsg:4326'}
-</code></pre>
-
 <p>Now plot the dissolved 8-digit HUC polygons-</p>
-
-<pre><code class="language-python">huc8.plot(cmap = 'Paired', categorical=True, figsize=(14,6));
-</code></pre>
-
-<p><img src="/img/huc8.png" alt="" /></p>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">huc8</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;Paired&#39;</span><span class="p">,</span> <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">));</span>
+</code></pre></div><p><img src="/img/huc8.png" alt=""></p>
 <p>Project to Oregon statewide Lambert projection - using pyepsg - and then reproject</p>
-
-<pre><code class="language-python">import pyepsg
-pyepsg.get('2991')
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pyepsg</span>
+<span class="n">pyepsg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;2991&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>&lt;ProjectedCRS: 2991, NAD83 / Oregon LCC (m)&gt;
 </code></pre>
-
-<pre><code>&lt;ProjectedCRS: 2991, NAD83 / Oregon LCC (m)&gt;
-</code></pre>
-
-<pre><code class="language-python">huc8 = huc8.to_crs(epsg=2991)
-</code></pre>
-
-<p>Now plot the re-projected geodataframe</p>
-
-<pre><code class="language-python">huc8.plot(cmap = 'Paired', categorical=True, figsize=(14,6));
-</code></pre>
-
-<p><img src="/img/huc8proj.png" alt="" /></p>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">huc8</span> <span class="o">=</span> <span class="n">huc8</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">2991</span><span class="p">)</span>
+</code></pre></div><p>Now plot the re-projected geodataframe</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">huc8</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;Paired&#39;</span><span class="p">,</span> <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">));</span>
+</code></pre></div><p><img src="/img/huc8proj.png" alt=""></p>
 <p>Plot choropleth map using HUC area - and convert area to kilometers (map projection is in meters)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">huc8</span><span class="p">[</span><span class="s1">&#39;area_km2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">huc8</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">area</span> <span class="o">*</span> <span class="mf">1e-6</span>
+<span class="n">huc8</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">22</span><span class="p">]]</span>
+</code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-<pre><code class="language-python">huc8['area_km2'] = huc8.geom.area * 1e-6
-huc8.iloc[[0,1,2],[0,22]]
+.dataframe tbody tr th {
+    vertical-align: top;
+}
 </code></pre>
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>geom</th>
-      <th>area_km2</th>
-    </tr>
-    <tr>
-      <th>huc_8</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>17050103</th>
-      <td>(POLYGON ((679446.0847084918 184070.6811281344...</td>
-      <td>386.085209</td>
-    </tr>
-    <tr>
-      <th>17050106</th>
-      <td>POLYGON ((680084.8704586171 49496.81553380163,...</td>
-      <td>98.131472</td>
-    </tr>
-    <tr>
-      <th>17050107</th>
-      <td>POLYGON ((664255.7335354568 39951.32383508176,...</td>
-      <td>2590.766262</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<pre><code class="language-python">f, ax = plt.subplots(1, figsize=(8, 6))
-huc8.plot(column='area_km2', scheme='fisher_jenks', k=7, 
-                         alpha=0.9, cmap=plt.cm.Blues, legend=True,ax=ax)
-plt.axis('equal')
-ax.set_title('Watersheds by area ($km^2$)')
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">huc8</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;area_km2&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;fisher_jenks&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> 
+                         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Watersheds by area ($km^2$)&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>&lt;matplotlib.text.Text at 0x23840a58&gt;
 </code></pre>
-
-<pre><code>&lt;matplotlib.text.Text at 0x23840a58&gt;
-</code></pre>
-
-<p><img src="/img/huc8chor.png" alt="" /></p>
-
+<p><img src="/img/huc8chor.png" alt=""></p>
 <p>Try a spatial join of polygons on points - I&rsquo;ll use a set of USGS stream gages I have handy for the point layer.</p>
-
-<pre><code class="language-python">gages = pd.read_csv('c:/users/mweber/temp/streamgages.csv')
-gages.iloc[0]
-</code></pre>
-
-<pre><code>SOURCE_FEA                          14361500
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">gages</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;c:/users/mweber/temp/streamgages.csv&#39;</span><span class="p">)</span>
+<span class="n">gages</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div><pre><code>SOURCE_FEA                          14361500
 EVENTTYPE                         StreamGage
 STATION_NM    ROGUE RIVER AT GRANTS PASS, OR
 STATE                                     OR
@@ -409,24 +323,17 @@ LON_SITE                            -123.318
 LAT_SITE                             42.4304
 Name: 0, dtype: object
 </code></pre>
-
 <p>Promote the pandas dataframe to a geodataframe using the lattitude and longitude</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
 
-<pre><code class="language-python">from shapely.geometry import Point
-
-geometry = [Point(xy) for xy in zip(gages.LON_SITE, gages.LAT_SITE)]
-crs = {'init': 'epsg:4326'}
-gages = GeoDataFrame(gages, crs=crs, geometry=geometry)
-type(gages)
+<span class="n">geometry</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span> <span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gages</span><span class="o">.</span><span class="n">LON_SITE</span><span class="p">,</span> <span class="n">gages</span><span class="o">.</span><span class="n">LAT_SITE</span><span class="p">)]</span>
+<span class="n">crs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;init&#39;</span><span class="p">:</span> <span class="s1">&#39;epsg:4326&#39;</span><span class="p">}</span>
+<span class="n">gages</span> <span class="o">=</span> <span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">gages</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">geometry</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">gages</span><span class="p">)</span>
+</code></pre></div><pre><code>geopandas.geodataframe.GeoDataFrame
 </code></pre>
-
-<pre><code>geopandas.geodataframe.GeoDataFrame
-</code></pre>
-
-<pre><code class="language-python">gages.iloc[0]
-</code></pre>
-
-<pre><code>SOURCE_FEA                             14361500
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">gages</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div><pre><code>SOURCE_FEA                             14361500
 EVENTTYPE                            StreamGage
 STATION_NM       ROGUE RIVER AT GRANTS PASS, OR
 STATE                                        OR
@@ -435,43 +342,31 @@ LAT_SITE                                42.4304
 geometry      POINT (-123.31783647 42.43039607)
 Name: 0, dtype: object
 </code></pre>
-
 <p>Restrict gages to just Oregon, reproject the gages to the huc8 proojection, then rename the huc8 &lsquo;geom&rsquo; column to &lsquo;geometry&rsquo; and then we&rsquo;ll try an inner spatial join</p>
-
-<pre><code class="language-python">from geopandas.tools import sjoin
-#gages = gages.to_crs(epsg=2991)
-huc8 = huc8.rename(columns={'geom': 'geometry'}).set_geometry('geometry')
-gages.crs == huc8.crs
-gages = gages.loc[gages['STATE']=='OR']
-gages_huc8 = gpd.sjoin(gages, huc8, how='inner')
-f, ax = plt.subplots(1, figsize=(8, 6))
-plt.axis('equal')
-huc8.plot(ax=ax)
-gages_huc8.plot(markersize=6, categorical=True, ax=ax)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">geopandas.tools</span> <span class="kn">import</span> <span class="n">sjoin</span>
+<span class="c1">#gages = gages.to_crs(epsg=2991)</span>
+<span class="n">huc8</span> <span class="o">=</span> <span class="n">huc8</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;geom&#39;</span><span class="p">:</span> <span class="s1">&#39;geometry&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s1">&#39;geometry&#39;</span><span class="p">)</span>
+<span class="n">gages</span><span class="o">.</span><span class="n">crs</span> <span class="o">==</span> <span class="n">huc8</span><span class="o">.</span><span class="n">crs</span>
+<span class="n">gages</span> <span class="o">=</span> <span class="n">gages</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">gages</span><span class="p">[</span><span class="s1">&#39;STATE&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;OR&#39;</span><span class="p">]</span>
+<span class="n">gages_huc8</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">gages</span><span class="p">,</span> <span class="n">huc8</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">huc8</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">gages_huc8</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">markersize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</code></pre></div><pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x3a84f1d0&gt;
 </code></pre>
-
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x3a84f1d0&gt;
-</code></pre>
-
-<p><img src="/img/huc8sjoin.png" alt="" /></p>
-
+<p><img src="/img/huc8sjoin.png" alt=""></p>
 <p>Now run zonal statistics using polygons and rasters with rasterstats</p>
-
-<pre><code class="language-python">import rasterio
-import rasterio.plot as rioplot
-import numpy as np
-with rasterio.open('H:/WorkingData/Prism_30yr_OR.tif') as src:
-    transform = src.meta['transform']
-    precip = src.read(1)
-precip[precip &lt; 0] = np.nan
-</code></pre>
-
-<p>Look at raster metadata</p>
-
-<pre><code class="language-python">src.meta
-</code></pre>
-
-<pre><code>{'count': 1,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">rasterio</span>
+<span class="kn">import</span> <span class="nn">rasterio.plot</span> <span class="k">as</span> <span class="nn">rioplot</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;H:/WorkingData/Prism_30yr_OR.tif&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+    <span class="n">transform</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]</span>
+    <span class="n">precip</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">precip</span><span class="p">[</span><span class="n">precip</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</code></pre></div><p>Look at raster metadata</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">src</span><span class="o">.</span><span class="n">meta</span>
+</code></pre></div><pre><code>{'count': 1,
  'crs': CRS({u'lon_0': -96, u'datum': u'NAD83', u'y_0': 0, u'no_defs': True, u'proj': u'aea', u'x_0': 0, u'units': u'm', u'lat_2': 45.5, u'lat_1': 29.5, u'lat_0': 23}),
  'driver': u'GTiff',
  'dtype': 'float32',
@@ -481,130 +376,34 @@ precip[precip &lt; 0] = np.nan
        0.0, -800.0, 3080024.0625),
  'width': 1259}
 </code></pre>
-
-<pre><code class="language-python">rioplot.show(precip, with_bounds=True, cmap=plt.cm.Blues)
-</code></pre>
-
-<p><img src="/img/prism.png" alt="" /></p>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">rioplot</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">precip</span><span class="p">,</span> <span class="n">with_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">)</span>
+</code></pre></div><p><img src="/img/prism.png" alt=""></p>
 <pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2e9ca860&gt;
 </code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">rasterstats</span> <span class="k">as</span> <span class="nn">rs</span>
+<span class="kn">import</span> <span class="nn">fiona</span>
+<span class="c1">#huc8 = huc8.to_crs(&#39;+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=23 +lon_0=-96 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs +ellps=GRS80 +towgs84=0,0,0&#39;)</span>
+<span class="n">precip_zonal</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="n">zonal_stats</span><span class="p">(</span><span class="n">huc8</span><span class="p">,</span> <span class="s1">&#39;H:/WorkingData/Prism_30yr_OR.tif&#39;</span><span class="p">,</span> <span class="n">geojson_out</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">precip_zonal</span> <span class="o">=</span> <span class="n">GeoDataFrame</span><span class="o">.</span><span class="n">from_features</span><span class="p">(</span><span class="n">precip_zonal</span><span class="p">)</span>
+<span class="n">precip_zonal</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><!-- raw HTML omitted -->
+<pre><code>.dataframe thead th {
+    text-align: left;
+}
 
-<pre><code class="language-python">import rasterstats as rs
-import fiona
-#huc8 = huc8.to_crs('+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=23 +lon_0=-96 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs +ellps=GRS80 +towgs84=0,0,0')
-precip_zonal = rs.zonal_stats(huc8, 'H:/WorkingData/Prism_30yr_OR.tif', geojson_out=True)
+.dataframe tbody tr th {
+    vertical-align: top;
+}
 </code></pre>
-
-<pre><code class="language-python">precip_zonal = GeoDataFrame.from_features(precip_zonal)
-precip_zonal.head(2)
-</code></pre>
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>acres</th>
-      <th>count</th>
-      <th>gaz_id</th>
-      <th>geometry</th>
-      <th>gid</th>
-      <th>globalid</th>
-      <th>hu_10_gnis</th>
-      <th>hu_10_mod</th>
-      <th>hu_10_name</th>
-      <th>hu_10_type</th>
-      <th>...</th>
-      <th>huc_12</th>
-      <th>max</th>
-      <th>mean</th>
-      <th>meta_id</th>
-      <th>min</th>
-      <th>ncontrb_a</th>
-      <th>objectid</th>
-      <th>shape_area</th>
-      <th>shape_leng</th>
-      <th>states</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>22381.271444</td>
-      <td>600</td>
-      <td>-72812</td>
-      <td>(POLYGON ((-1684470.024757544 2449556.42795410...</td>
-      <td>2553</td>
-      <td>{BC0BA51C-9970-43C3-A810-C6F12B99911A}</td>
-      <td>None</td>
-      <td>NM</td>
-      <td>Lower Succor Creek</td>
-      <td>S</td>
-      <td>...</td>
-      <td>170501030901</td>
-      <td>620.897461</td>
-      <td>308.655677</td>
-      <td>OR01</td>
-      <td>229.144257</td>
-      <td>0.0</td>
-      <td>103018</td>
-      <td>0.010043</td>
-      <td>0.530808</td>
-      <td>OR</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>24225.748801</td>
-      <td>154</td>
-      <td>-78734</td>
-      <td>POLYGON ((-1719043.984217515 2318687.346051499...</td>
-      <td>8475</td>
-      <td>{BF6E742F-F812-4F50-AF09-B55A52CAE3CC}</td>
-      <td>None</td>
-      <td>NM</td>
-      <td>Tent Creek</td>
-      <td>S</td>
-      <td>...</td>
-      <td>170501060502</td>
-      <td>367.764740</td>
-      <td>327.508903</td>
-      <td>OR01</td>
-      <td>313.125732</td>
-      <td>0.0</td>
-      <td>220900</td>
-      <td>0.010666</td>
-      <td>0.628540</td>
-      <td>OR</td>
-    </tr>
-  </tbody>
-</table>
-<p>2 rows × 26 columns</p>
-</div>
-
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 <p>Now a choropleth map of 30-year average precip by 8-digit HUC in Oregon</p>
-
-<pre><code class="language-python">f, ax = plt.subplots(1, figsize=(8, 6))
-precip_zonal.plot(column='mean', scheme='Equal_Interval', k=5, 
-                   alpha=1, cmap=plt.cm.Blues, legend=True, ax=ax)
-plt.axis('equal')
-ax.set_title('Average 30-year precipitation ($mm/month$) by HUC8');
-</code></pre>
-
-<p><img src="/img/zonal.png" alt="" /></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">precip_zonal</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;Equal_Interval&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> 
+                   <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Average 30-year precipitation ($mm/month$) by HUC8&#39;</span><span class="p">);</span>
+</code></pre></div><p><img src="/img/zonal.png" alt=""></p>
 
       </article>
 
@@ -625,20 +424,25 @@ ax.set_title('Average 30-year precipitation ($mm/month$) by HUC8');
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'mhweber';
-    var disqus_identifier = 'https:\/\/mhweber.github.io\/2017\/07\/14\/geopandas-tutorial\/';
-    var disqus_title = 'GeoPandas Tutorial';
-    var disqus_url = 'https:\/\/mhweber.github.io\/2017\/07\/14\/geopandas-tutorial\/';
-
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mhweber" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
           </div>
         
       
@@ -724,7 +528,7 @@ ax.set_title('Average 30-year precipitation ($mm/month$) by HUC8');
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.22</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.88.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

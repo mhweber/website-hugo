@@ -1,17 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Wordcloud on Marc Weber</title>
+    <title>wordcloud on Marc Weber</title>
     <link>https://mhweber.github.io/tags/wordcloud/</link>
-    <description>Recent content in Wordcloud on Marc Weber</description>
+    <description>Recent content in wordcloud on Marc Weber</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>mweber36@gmail.com (Marc Weber)</managingEditor>
     <webMaster>mweber36@gmail.com (Marc Weber)</webMaster>
-    <lastBuildDate>Thu, 13 Jul 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://mhweber.github.io/tags/wordcloud/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 13 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://mhweber.github.io/tags/wordcloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Wordcloud</title>
       <link>https://mhweber.github.io/2017/07/13/wordcloud/</link>

@@ -9,9 +9,9 @@
   <meta property="og:title" content="Testing the rnassqs R package with Willamette basin data" />
   <meta name="twitter:title" content="Testing the rnassqs R package with Willamette basin data" />
   <meta name="description" content="Pull in data via API for Survey data This script uses the NASS API to query the NASS Quickstats service for historic acres harvested of primary crop groups in Willamette basin counties in Oregon from 1969-2013. An example of using the NASS Quickstats API to pull in and examine crop data in Willamette basin.
-library(dplyr)  ## Warning: package &#39;dplyr&#39; was built under R version 3.5.2  library(tibble) library(tidyr) library(rnassqs) library(lubridate) library(readr) years &lt;- seq(as.">
+library(dplyr) ## Warning: package &#39;dplyr&#39; was built under R version 3.5.2library(tibble) library(tidyr) library(rnassqs) library(lubridate) library(readr) years &lt;- seq(as.">
   <meta property="og:description" content="Pull in data via API for Survey data This script uses the NASS API to query the NASS Quickstats service for historic acres harvested of primary crop groups in Willamette basin counties in Oregon from 1969-2013. An example of using the NASS Quickstats API to pull in and examine crop data in Willamette basin.
-library(dplyr)  ## Warning: package &#39;dplyr&#39; was built under R version 3.5.2  library(tibble) library(tidyr) library(rnassqs) library(lubridate) library(readr) years &lt;- seq(as.">
+library(dplyr) ## Warning: package &#39;dplyr&#39; was built under R version 3.5.2library(tibble) library(tidyr) library(rnassqs) library(lubridate) library(readr) years &lt;- seq(as.">
   <meta name="twitter:description" content="Pull in data via API for Survey data This script uses the NASS API to query the NASS Quickstats service for historic acres harvested of primary crop groups in Willamette basin counties in Oregon from …">
   <meta name="author" content="Marc Weber"/>
   <link href='https://mhweber.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -24,7 +24,7 @@ library(dplyr)  ## Warning: package &#39;dplyr&#39; was built under R version 3.
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Marc Weber" />
 
-  <meta name="generator" content="Hugo 0.22" />
+  <meta name="generator" content="Hugo 0.88.1" />
   <link rel="canonical" href="https://mhweber.github.io/2019/05/28/testing-the-rnassqs-r-package-with-willamette-basin-data/" />
   <link rel="alternate" href="https://mhweber.github.io/index.xml" type="application/rss+xml" title="Marc Weber">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -88,12 +88,16 @@ library(dplyr)  ## Warning: package &#39;dplyr&#39; was built under R version 3.
     </div>
 </div>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-99730307-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-99730307-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 
@@ -182,7 +186,7 @@ ga('send', 'pageview');
                 
                 
                   <span class="post-meta">
-  Posted on May 28, 2019
+  
   
 </span>
 
@@ -201,149 +205,113 @@ ga('send', 'pageview');
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        
-
-<h2 id="pull-in-data-via-api-for-survey-data">Pull in data via API for Survey data</h2>
-
+        <h2 id="pull-in-data-via-api-for-survey-data">Pull in data via API for Survey data</h2>
 <p>This script uses the NASS API to query the NASS Quickstats service for historic acres harvested of primary crop groups in Willamette basin counties in Oregon from 1969-2013.  An example of using the <a href="https://quickstats.nass.usda.gov/api">NASS Quickstats API</a> to pull in and examine crop data in Willamette basin.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</code></pre></div><pre tabindex="0"><code>## Warning: package 'dplyr' was built under R version 3.5.2
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">tibble</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">rnassqs</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
 
-<pre><code class="language-r">library(dplyr)
-</code></pre>
+<span class="n">years</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="nf">as.Date</span><span class="p">(</span><span class="s">&#39;1/1/1969&#39;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#34;%d/%m/%Y&#34;</span><span class="p">),</span><span class="nf">as.Date</span><span class="p">(</span><span class="s">&#39;1/1/2013&#39;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#34;%d/%m/%Y&#34;</span><span class="p">),</span><span class="n">by</span><span class="o">=</span><span class="s">&#39;years&#39;</span><span class="p">)</span>
+<span class="n">years</span> <span class="o">&lt;-</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="nf">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;%Y&#39;</span><span class="p">)))</span>
 
-<pre><code>## Warning: package 'dplyr' was built under R version 3.5.2
-</code></pre>
-
-<pre><code class="language-r">library(tibble)
-library(tidyr)
-library(rnassqs)
-library(lubridate)
-library(readr)
-
-years &lt;- seq(as.Date('1/1/1969', format=&quot;%d/%m/%Y&quot;),as.Date('1/1/2013', format=&quot;%d/%m/%Y&quot;),by='years')
-years &lt;- sapply(years, function(x) as.numeric(format(x,'%Y')))
-
-i=1
-for(y in years){
-  # print(y)
-  params = list(&quot;source_desc&quot;=&quot;SURVEY&quot;, &quot;sector_desc&quot;=&quot;CROPS&quot;,&quot;year&quot;=y,&quot;state_alpha&quot; = &quot;OR&quot;,
-              &quot;agg_level_desc&quot;=&quot;COUNTY&quot;,&quot;asd_desc&quot;=&quot;NORTHWEST&quot;,&quot;statisticcat_desc&quot;=&quot;AREA HARVESTED&quot;)
-  d = nassqs(params=params)
-  t &lt;- d %&gt;%
-    group_by(commodity_desc) %&gt;%
-    filter(!county_name %in% c(&quot;COLUMBIA&quot;,&quot;OTHER (COMBINED) COUNTIES&quot;)) %&gt;%
-    filter(Value != &quot;                 (D)&quot;) %&gt;%
-    select(year,crop=commodity_desc, Value) %&gt;%
-    mutate(Value = as.numeric(gsub(&quot;\\,&quot;,&quot;&quot;,Value))) %&gt;%
-    summarise(acres_harvested=sum(Value)) %&gt;%
-    spread(crop,acres_harvested) 
+<span class="n">i</span><span class="o">=</span><span class="m">1</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">y</span> <span class="n">in</span> <span class="n">years</span><span class="p">){</span>
+  <span class="c1"># print(y)</span>
+  <span class="n">params</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="s">&#34;source_desc&#34;</span><span class="o">=</span><span class="s">&#34;SURVEY&#34;</span><span class="p">,</span> <span class="s">&#34;sector_desc&#34;</span><span class="o">=</span><span class="s">&#34;CROPS&#34;</span><span class="p">,</span><span class="s">&#34;year&#34;</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="s">&#34;state_alpha&#34;</span> <span class="o">=</span> <span class="s">&#34;OR&#34;</span><span class="p">,</span>
+              <span class="s">&#34;agg_level_desc&#34;</span><span class="o">=</span><span class="s">&#34;COUNTY&#34;</span><span class="p">,</span><span class="s">&#34;asd_desc&#34;</span><span class="o">=</span><span class="s">&#34;NORTHWEST&#34;</span><span class="p">,</span><span class="s">&#34;statisticcat_desc&#34;</span><span class="o">=</span><span class="s">&#34;AREA HARVESTED&#34;</span><span class="p">)</span>
+  <span class="n">d</span> <span class="o">=</span> <span class="nf">nassqs</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+  <span class="n">t</span> <span class="o">&lt;-</span> <span class="n">d</span> <span class="o">%&gt;%</span>
+    <span class="nf">group_by</span><span class="p">(</span><span class="n">commodity_desc</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="nf">filter</span><span class="p">(</span><span class="o">!</span><span class="n">county_name</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;COLUMBIA&#34;</span><span class="p">,</span><span class="s">&#34;OTHER (COMBINED) COUNTIES&#34;</span><span class="p">))</span> <span class="o">%&gt;%</span>
+    <span class="nf">filter</span><span class="p">(</span><span class="n">Value</span> <span class="o">!=</span> <span class="s">&#34;                 (D)&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="nf">select</span><span class="p">(</span><span class="n">year</span><span class="p">,</span><span class="n">crop</span><span class="o">=</span><span class="n">commodity_desc</span><span class="p">,</span> <span class="n">Value</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="nf">mutate</span><span class="p">(</span><span class="n">Value</span> <span class="o">=</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;\\,&#34;</span><span class="p">,</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">Value</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+    <span class="nf">summarise</span><span class="p">(</span><span class="n">acres_harvested</span><span class="o">=</span><span class="nf">sum</span><span class="p">(</span><span class="n">Value</span><span class="p">))</span> <span class="o">%&gt;%</span>
+    <span class="nf">spread</span><span class="p">(</span><span class="n">crop</span><span class="p">,</span><span class="n">acres_harvested</span><span class="p">)</span> 
   
-  t &lt;- t %&gt;%
-    add_column(Year = y) %&gt;%
-    select(Year, everything())
-  if (i==1) f &lt;-  t 
-  if (i &gt; 1) f &lt;- bind_rows(f,t)
-  i=i+1  
-}
-</code></pre>
-
-<h2 id="visualize-survey-data">Visualize Survey data</h2>
-
-<pre><code class="language-r">library(ggplot2)
-options(scipen=3)
-f2 &lt;- gather(f, key, value,-Year)
-p1 &lt;- ggplot() + geom_line(aes(y = value, x = Year, colour = key),
-                           data = f2, stat=&quot;identity&quot;) +
-  ylab('Acres Harvested')
-p1
-</code></pre>
-
-<p><img src="/img/survey_ggplot.png" alt="survey ggplot" /></p>
-
+  <span class="n">t</span> <span class="o">&lt;-</span> <span class="n">t</span> <span class="o">%&gt;%</span>
+    <span class="nf">add_column</span><span class="p">(</span><span class="n">Year</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="nf">select</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="nf">everything</span><span class="p">())</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="m">1</span><span class="p">)</span> <span class="n">f</span> <span class="o">&lt;-</span>  <span class="n">t</span> 
+  <span class="nf">if </span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="n">f</span> <span class="o">&lt;-</span> <span class="nf">bind_rows</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+  <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="m">+1</span>  
+<span class="p">}</span>
+</code></pre></div><h2 id="visualize-survey-data">Visualize Survey data</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">scipen</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">&lt;-</span> <span class="nf">gather</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span><span class="o">-</span><span class="n">Year</span><span class="p">)</span>
+<span class="n">p1</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Year</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="n">key</span><span class="p">),</span>
+                           <span class="n">data</span> <span class="o">=</span> <span class="n">f2</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&#39;Acres Harvested&#39;</span><span class="p">)</span>
+<span class="n">p1</span>
+</code></pre></div><p><img src="/img/survey_ggplot.png" alt="survey ggplot"></p>
 <h2 id="compare-with-nass-census">Compare with NASS Census</h2>
-
 <p>This script uses the NASS API to query the NASS Quickstats service for historic acres harvested of primary crop groups in Willamette basin counties in Oregon from 1969 to 2013</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">years</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1997</span><span class="p">,</span><span class="m">2002</span><span class="p">,</span> <span class="m">2007</span><span class="p">,</span> <span class="m">2012</span><span class="p">,</span> <span class="m">2017</span><span class="p">)</span>
 
-<pre><code class="language-r">years &lt;- c(1997,2002, 2007, 2012, 2017)
-
-i=1
-for(y in years){
-  # print(y)
-  params = list(&quot;source_desc&quot;=&quot;CENSUS&quot;, &quot;sector_desc&quot;=&quot;CROPS&quot;,&quot;year&quot;=y,&quot;state_alpha&quot; = &quot;OR&quot;,
-                &quot;agg_level_desc&quot;=&quot;COUNTY&quot;,&quot;asd_desc&quot;=&quot;NORTHWEST&quot;,&quot;statisticcat_desc&quot;=&quot;AREA HARVESTED&quot;)
-  d = nassqs(params=params)
-  t &lt;- d %&gt;%
-    group_by(commodity_desc) %&gt;%
-    filter(!county_name %in% c(&quot;COLUMBIA&quot;,&quot;OTHER (COMBINED) COUNTIES&quot;)) %&gt;%
-    filter(!Value %in% c(&quot;                 (D)&quot;,&quot;                 (Z)&quot;)) %&gt;%
-    select(year,crop=commodity_desc, Value) %&gt;%
-    mutate(Value = as.numeric(gsub(&quot;\\,&quot;,&quot;&quot;,Value))) %&gt;%
-    dplyr::summarise(acres_harvested=sum(Value)) %&gt;%
-    spread(crop,acres_harvested) 
+<span class="n">i</span><span class="o">=</span><span class="m">1</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">y</span> <span class="n">in</span> <span class="n">years</span><span class="p">){</span>
+  <span class="c1"># print(y)</span>
+  <span class="n">params</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="s">&#34;source_desc&#34;</span><span class="o">=</span><span class="s">&#34;CENSUS&#34;</span><span class="p">,</span> <span class="s">&#34;sector_desc&#34;</span><span class="o">=</span><span class="s">&#34;CROPS&#34;</span><span class="p">,</span><span class="s">&#34;year&#34;</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="s">&#34;state_alpha&#34;</span> <span class="o">=</span> <span class="s">&#34;OR&#34;</span><span class="p">,</span>
+                <span class="s">&#34;agg_level_desc&#34;</span><span class="o">=</span><span class="s">&#34;COUNTY&#34;</span><span class="p">,</span><span class="s">&#34;asd_desc&#34;</span><span class="o">=</span><span class="s">&#34;NORTHWEST&#34;</span><span class="p">,</span><span class="s">&#34;statisticcat_desc&#34;</span><span class="o">=</span><span class="s">&#34;AREA HARVESTED&#34;</span><span class="p">)</span>
+  <span class="n">d</span> <span class="o">=</span> <span class="nf">nassqs</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+  <span class="n">t</span> <span class="o">&lt;-</span> <span class="n">d</span> <span class="o">%&gt;%</span>
+    <span class="nf">group_by</span><span class="p">(</span><span class="n">commodity_desc</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="nf">filter</span><span class="p">(</span><span class="o">!</span><span class="n">county_name</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;COLUMBIA&#34;</span><span class="p">,</span><span class="s">&#34;OTHER (COMBINED) COUNTIES&#34;</span><span class="p">))</span> <span class="o">%&gt;%</span>
+    <span class="nf">filter</span><span class="p">(</span><span class="o">!</span><span class="n">Value</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;                 (D)&#34;</span><span class="p">,</span><span class="s">&#34;                 (Z)&#34;</span><span class="p">))</span> <span class="o">%&gt;%</span>
+    <span class="nf">select</span><span class="p">(</span><span class="n">year</span><span class="p">,</span><span class="n">crop</span><span class="o">=</span><span class="n">commodity_desc</span><span class="p">,</span> <span class="n">Value</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="nf">mutate</span><span class="p">(</span><span class="n">Value</span> <span class="o">=</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="nf">gsub</span><span class="p">(</span><span class="s">&#34;\\,&#34;</span><span class="p">,</span><span class="s">&#34;&#34;</span><span class="p">,</span><span class="n">Value</span><span class="p">)))</span> <span class="o">%&gt;%</span>
+    <span class="n">dplyr</span><span class="o">::</span><span class="nf">summarise</span><span class="p">(</span><span class="n">acres_harvested</span><span class="o">=</span><span class="nf">sum</span><span class="p">(</span><span class="n">Value</span><span class="p">))</span> <span class="o">%&gt;%</span>
+    <span class="nf">spread</span><span class="p">(</span><span class="n">crop</span><span class="p">,</span><span class="n">acres_harvested</span><span class="p">)</span> 
   
-  t &lt;- t %&gt;%
-    add_column(Year = y) %&gt;%
-    select(Year, everything())
-  if (i==1) f &lt;-  t 
-  if (i &gt; 1) f &lt;- bind_rows(f,t)
-  i=i+1  
-}
-</code></pre>
-
-<h2 id="visualize-census-data">Visualize Census data</h2>
-
-<pre><code class="language-r">f2 &lt;- gather(f[,1:15], key, value,-Year)
-p1 &lt;- ggplot() + geom_line(aes(y = value, x = Year, colour = key),
-                           data = f2, stat=&quot;identity&quot;)+
-  ylab('Acrea Harvested')
-p1
-</code></pre>
-
-<p><img src="/img/census_ggplot1.png" alt="census ggplot1" /></p>
-
-<pre><code class="language-r">f3 &lt;- gather(f[,c(1,16:29)], key, value,-Year)
-p2 &lt;- ggplot() + geom_line(aes(y = value, x = Year, colour = key),
-                           data = f3, stat=&quot;identity&quot;)+
-  ylab('Acres Harvested')
-p2
-</code></pre>
-
-<p><img src="/img/census_ggplot2.png" alt="census ggplot2" /></p>
-
-<pre><code class="language-r">f4 &lt;- gather(f[,c(1,30:43)], key, value,-Year)
-p3 &lt;- ggplot() + geom_line(aes(y = value, x = Year, colour = key),
-                           data = f4, stat=&quot;identity&quot;)+
-  ylab('Acres Harvested')
-p3
-</code></pre>
-
-<p><img src="/img/census_ggplot3.png" alt="census ggplot3" /></p>
-
-<pre><code class="language-r">f5 &lt;- gather(f[,c(1,44:58)], key, value,-Year)
-p4 &lt;- ggplot() + geom_line(aes(y = value, x = Year, colour = key),
-                           data = f5, stat=&quot;identity&quot;)+
-  ylab('Acres Harvested')
-p4
-</code></pre>
-
-<p><img src="/img/census_ggplot4.png" alt="census ggplot4" /></p>
-
-<pre><code class="language-r">f6 &lt;- gather(f[,c(1,59:72)], key, value,-Year)
-p5 &lt;- ggplot() + geom_line(aes(y = value, x = Year, colour = key),
-                           data = f6, stat=&quot;identity&quot;)+
-  ylab('Acres Harvested')
-p5
-</code></pre>
-
-<p><img src="/img/census_ggplot5.png" alt="census ggplot5" /></p>
-
-<pre><code class="language-r">f7 &lt;- gather(f[,c(1,73:86)], key, value,-Year)
-p6 &lt;- ggplot() + geom_line(aes(y = value, x = Year, colour = key),
-                           data = f7, stat=&quot;identity&quot;)+
-  ylab('Acres Harvested')
-p6
-</code></pre>
-
-<p><img src="/img/census_ggplot6.png" alt="census ggplot6" /></p>
+  <span class="n">t</span> <span class="o">&lt;-</span> <span class="n">t</span> <span class="o">%&gt;%</span>
+    <span class="nf">add_column</span><span class="p">(</span><span class="n">Year</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="nf">select</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span> <span class="nf">everything</span><span class="p">())</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="m">1</span><span class="p">)</span> <span class="n">f</span> <span class="o">&lt;-</span>  <span class="n">t</span> 
+  <span class="nf">if </span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="n">f</span> <span class="o">&lt;-</span> <span class="nf">bind_rows</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+  <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="m">+1</span>  
+<span class="p">}</span>
+</code></pre></div><h2 id="visualize-census-data">Visualize Census data</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">f2</span> <span class="o">&lt;-</span> <span class="nf">gather</span><span class="p">(</span><span class="n">f[</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">15</span><span class="n">]</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span><span class="o">-</span><span class="n">Year</span><span class="p">)</span>
+<span class="n">p1</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Year</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="n">key</span><span class="p">),</span>
+                           <span class="n">data</span> <span class="o">=</span> <span class="n">f2</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">)</span><span class="o">+</span>
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&#39;Acrea Harvested&#39;</span><span class="p">)</span>
+<span class="n">p1</span>
+</code></pre></div><p><img src="/img/census_ggplot1.png" alt="census ggplot1"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">f3</span> <span class="o">&lt;-</span> <span class="nf">gather</span><span class="p">(</span><span class="n">f[</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">16</span><span class="o">:</span><span class="m">29</span><span class="p">)</span><span class="n">]</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span><span class="o">-</span><span class="n">Year</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Year</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="n">key</span><span class="p">),</span>
+                           <span class="n">data</span> <span class="o">=</span> <span class="n">f3</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">)</span><span class="o">+</span>
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&#39;Acres Harvested&#39;</span><span class="p">)</span>
+<span class="n">p2</span>
+</code></pre></div><p><img src="/img/census_ggplot2.png" alt="census ggplot2"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">f4</span> <span class="o">&lt;-</span> <span class="nf">gather</span><span class="p">(</span><span class="n">f[</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">30</span><span class="o">:</span><span class="m">43</span><span class="p">)</span><span class="n">]</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span><span class="o">-</span><span class="n">Year</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Year</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="n">key</span><span class="p">),</span>
+                           <span class="n">data</span> <span class="o">=</span> <span class="n">f4</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">)</span><span class="o">+</span>
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&#39;Acres Harvested&#39;</span><span class="p">)</span>
+<span class="n">p3</span>
+</code></pre></div><p><img src="/img/census_ggplot3.png" alt="census ggplot3"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">f5</span> <span class="o">&lt;-</span> <span class="nf">gather</span><span class="p">(</span><span class="n">f[</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">44</span><span class="o">:</span><span class="m">58</span><span class="p">)</span><span class="n">]</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span><span class="o">-</span><span class="n">Year</span><span class="p">)</span>
+<span class="n">p4</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Year</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="n">key</span><span class="p">),</span>
+                           <span class="n">data</span> <span class="o">=</span> <span class="n">f5</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">)</span><span class="o">+</span>
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&#39;Acres Harvested&#39;</span><span class="p">)</span>
+<span class="n">p4</span>
+</code></pre></div><p><img src="/img/census_ggplot4.png" alt="census ggplot4"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">f6</span> <span class="o">&lt;-</span> <span class="nf">gather</span><span class="p">(</span><span class="n">f[</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">59</span><span class="o">:</span><span class="m">72</span><span class="p">)</span><span class="n">]</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span><span class="o">-</span><span class="n">Year</span><span class="p">)</span>
+<span class="n">p5</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Year</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="n">key</span><span class="p">),</span>
+                           <span class="n">data</span> <span class="o">=</span> <span class="n">f6</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">)</span><span class="o">+</span>
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&#39;Acres Harvested&#39;</span><span class="p">)</span>
+<span class="n">p5</span>
+</code></pre></div><p><img src="/img/census_ggplot5.png" alt="census ggplot5"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">f7</span> <span class="o">&lt;-</span> <span class="nf">gather</span><span class="p">(</span><span class="n">f[</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">73</span><span class="o">:</span><span class="m">86</span><span class="p">)</span><span class="n">]</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span><span class="o">-</span><span class="n">Year</span><span class="p">)</span>
+<span class="n">p6</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Year</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="n">key</span><span class="p">),</span>
+                           <span class="n">data</span> <span class="o">=</span> <span class="n">f7</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s">&#34;identity&#34;</span><span class="p">)</span><span class="o">+</span>
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&#39;Acres Harvested&#39;</span><span class="p">)</span>
+<span class="n">p6</span>
+</code></pre></div><p><img src="/img/census_ggplot6.png" alt="census ggplot6"></p>
 
       </article>
 
@@ -364,20 +332,25 @@ p6
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'mhweber';
-    var disqus_identifier = 'https:\/\/mhweber.github.io\/2019\/05\/28\/testing-the-rnassqs-r-package-with-willamette-basin-data\/';
-    var disqus_title = 'Testing the rnassqs R package with Willamette basin data';
-    var disqus_url = 'https:\/\/mhweber.github.io\/2019\/05\/28\/testing-the-rnassqs-r-package-with-willamette-basin-data\/';
-
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mhweber" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
           </div>
         
       
@@ -463,7 +436,7 @@ p6
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.22</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.88.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

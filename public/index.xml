@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Marc Weber</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>mweber36@gmail.com (Marc Weber)</managingEditor>
     <webMaster>mweber36@gmail.com (Marc Weber)</webMaster>
-    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://mhweber.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mhweber.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Trying Out Bookdown and Publishing to GitHub Pages</title>
       <link>https://mhweber.github.io/2020/02/12/trying-out-bookdown-and-publishing-to-github-pages/</link>
@@ -19,10 +15,9 @@
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2020/02/12/trying-out-bookdown-and-publishing-to-github-pages/</guid>
       <description>I finally decided to try creating a bookdown project and see if I could figure out hosting it on GitHub Pages. The steps I followed were:
- Create a new empty GitHub repo on GitHub without a readme
- Create a new local R Project in a new directory as project type Book Project using bookdown
- Initialize a .git repository for the project after it is created
- Using code snippets on the GitHub repo you just created (initial page that shows up when you create the empty repository):</description>
+  Create a new empty GitHub repo on GitHub without a readme
+  Create a new local R Project in a new directory as project type Book Project using bookdown
+  Initialize a .git repository for the project after it is created</description>
     </item>
     
     <item>
@@ -32,7 +27,7 @@
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2019/05/28/testing-the-rnassqs-r-package-with-willamette-basin-data/</guid>
       <description>Pull in data via API for Survey data This script uses the NASS API to query the NASS Quickstats service for historic acres harvested of primary crop groups in Willamette basin counties in Oregon from 1969-2013. An example of using the NASS Quickstats API to pull in and examine crop data in Willamette basin.
-library(dplyr)  ## Warning: package &#39;dplyr&#39; was built under R version 3.5.2  library(tibble) library(tidyr) library(rnassqs) library(lubridate) library(readr) years &amp;lt;- seq(as.</description>
+library(dplyr) ## Warning: package &#39;dplyr&#39; was built under R version 3.5.2library(tibble) library(tidyr) library(rnassqs) library(lubridate) library(readr) years &amp;lt;- seq(as.</description>
     </item>
     
     <item>
@@ -43,7 +38,7 @@ library(dplyr)  ## Warning: package &#39;dplyr&#39; was built under R version 3.
       <guid>https://mhweber.github.io/2018/11/09/adding-wms-basemap-in-r-with-mapview/</guid>
       <description>Recently I wanted to be able to add a custom basemap of NHDPlus features to mapview leaflet maps. It&amp;rsquo;s not straitforward out of the box in mapview, but I found the helpful tips to do it here and here.
 Below I add the WMS service from EPA Waters along with USGS StreamGage stations in Benton County, OR using the dataRetrieval package.
-library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &amp;lt;- readNWISdata(stateCd=&amp;quot;Oregon&amp;quot;, countyCd=&amp;quot;Benton&amp;quot;) # DataRetrival returns objects as &#39;attributes&#39; - things like the url used, site metadata, site info, etc - just use attributes(Durham_Stations) to examine siteInfo &amp;lt;- attr(Stations , &amp;quot;siteInfo&amp;quot;) stations_sf = st_as_sf(siteInfo, coords = c(&amp;quot;dec_lon_va&amp;quot;, &amp;quot;dec_lat_va&amp;quot;), crs = 4269,agr = &amp;quot;constant&amp;quot;) m &amp;lt;- mapview(stations_sf) m@map = m@map %&amp;gt;% addWMSTiles(group = &#39;NHDPlus&#39;, &amp;quot;https://watersgeo.</description>
+library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &amp;lt;- readNWISdata(stateCd=&amp;#34;Oregon&amp;#34;, countyCd=&amp;#34;Benton&amp;#34;) # DataRetrival returns objects as &amp;#39;attributes&amp;#39; - things like the url used, site metadata, site info, etc - just use attributes(Durham_Stations) to examine siteInfo &amp;lt;- attr(Stations , &amp;#34;siteInfo&amp;#34;) stations_sf = st_as_sf(siteInfo, coords = c(&amp;#34;dec_lon_va&amp;#34;, &amp;#34;dec_lat_va&amp;#34;), crs = 4269,agr = &amp;#34;constant&amp;#34;) m &amp;lt;- mapview(stations_sf) m@map = m@map %&amp;gt;% addWMSTiles(group = &amp;#39;NHDPlus&amp;#39;, &amp;#34;https://watersgeo.</description>
     </item>
     
     <item>
@@ -62,8 +57,8 @@ library(dataRetrieval) library(mapview) library(sf) library(leaflet) Stations &a
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2017/10/13/playing-with-python-rasterstats/</guid>
       <description>This is code to get PctAg and PctUrb using NLCD 2006 for US Counties. First we&amp;rsquo;ll import some libraries.
-import pandas as pd import numpy as np import geopandas as gp  Bring in US Counties using US Census counties shapefile
-counties = gp.GeoDataFrame.from_file(&#39;L:/Priv/CORFiles/Geospatial_Library/Data/RESOURCE/POLITICAL/BOUNDARIES/NATIONAL/Counties_Census_2010.shp&#39;) list(counties) counties.STATE_NAME.unique() counties = counties[(counties.STATE_NAME != &#39;Hawaii&#39;) &amp;amp; (counties.STATE_NAME != &#39;Alaska&#39;)] counties = counties[[&#39;FIPS&#39;,&#39;NAME&#39;,&#39;geometry&#39;]] counties.head()    .dataframe thead tr:only-child th { text-align: right; } .</description>
+import pandas as pd import numpy as np import geopandas as gp Bring in US Counties using US Census counties shapefile
+counties = gp.GeoDataFrame.from_file(&amp;#39;L:/Priv/CORFiles/Geospatial_Library/Data/RESOURCE/POLITICAL/BOUNDARIES/NATIONAL/Counties_Census_2010.shp&amp;#39;) list(counties) counties.STATE_NAME.unique() counties = counties[(counties.STATE_NAME != &amp;#39;Hawaii&amp;#39;) &amp;amp; (counties.STATE_NAME != &amp;#39;Alaska&amp;#39;)] counties = counties[[&amp;#39;FIPS&amp;#39;,&amp;#39;NAME&amp;#39;,&amp;#39;geometry&amp;#39;]] counties.head() .dataframe thead th {text-align: left;}.dataframe tbody tr th {vertical-align: top;} counties.</description>
     </item>
     
     <item>
@@ -73,7 +68,7 @@ counties = gp.GeoDataFrame.from_file(&#39;L:/Priv/CORFiles/Geospatial_Library/Da
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2017/07/14/geopandas-tutorial/</guid>
       <description>This is an implementation of the excellent PostGIS / geopandas tutorial here using NHDPlus WBD polygons for PNW. All the ideas and methods are from this tutorial, simply implementing with a different dataset and in Oregon.
-%matplotlib inline import os import json import psycopg2 import matplotlib.pyplot as plt # The two statemens below are used mainly to set up a plotting # default style that&#39;s better than the default from matplotlib import seaborn as sns plt.</description>
+%matplotlib inline import os import json import psycopg2 import matplotlib.pyplot as plt # The two statemens below are used mainly to set up a plotting # default style that&amp;#39;s better than the default from matplotlib import seaborn as sns plt.</description>
     </item>
     
     <item>
@@ -102,7 +97,7 @@ from os import path from wordcloud import WordCloud # Read the whole text.</desc
       <pubDate>Fri, 05 May 2017 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2017/05/05/test-georasters/</guid>
-      <description> Tried out the georasters python package for changing data types of rasters, recoding, merging, and writing out - very nice, handy python package!  </description>
+      <description>Tried out the georasters python package for changing data types of rasters, recoding, merging, and writing out - very nice, handy python package!  </description>
     </item>
     
     <item>
@@ -111,7 +106,7 @@ from os import path from wordcloud import WordCloud # Read the whole text.</desc
       <pubDate>Fri, 24 Feb 2017 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2017/02/24/testing-the-simple-features-r-package/</guid>
-      <description>Load and look at basics of simple features package library(devtools) # install_github(&amp;quot;edzer/sfr&amp;quot;) library(sf)  ## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3  nc &amp;lt;- st_read(system.file(&amp;quot;shape/nc.shp&amp;quot;, package=&amp;quot;sf&amp;quot;))  ## Reading layer `nc&#39; from data source `C:\Users\mweber\R\library\sf\shape\nc.shp&#39; using driver `ESRI Shapefile&#39; ## converted into: MULTIPOLYGON ## Simple feature collection with 100 features and 14 fields ## geometry type: MULTIPOLYGON ## dimension: XY ## bbox: xmin: -84.32385 ymin: 33.88199 xmax: -75.</description>
+      <description>Load and look at basics of simple features package library(devtools) # install_github(&amp;#34;edzer/sfr&amp;#34;) library(sf) ## Linking to GEOS 3.5.0, GDAL 2.1.1, proj.4 4.9.3nc &amp;lt;- st_read(system.file(&amp;#34;shape/nc.shp&amp;#34;, package=&amp;#34;sf&amp;#34;)) ## Reading layer `nc&#39; from data source `C:\Users\mweber\R\library\sf\shape\nc.shp&#39; using driver `ESRI Shapefile&#39;## converted into: MULTIPOLYGON## Simple feature collection with 100 features and 14 fields## geometry type: MULTIPOLYGON## dimension: XY## bbox: xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965## epsg (SRID): 4267## proj4string: +proj=longlat +datum=NAD27 +no_defsclass(nc) ## [1] &amp;quot;sf&amp;quot; &amp;quot;data.</description>
     </item>
     
     <item>
@@ -120,7 +115,7 @@ from os import path from wordcloud import WordCloud # Read the whole text.</desc
       <pubDate>Mon, 12 Dec 2016 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2016/12/12/rasterize-shapefiles-in-python-with-rasterio-and-geopandas/</guid>
-      <description> Here&amp;rsquo;s a snippet showing how to rasterize a shapefile in python using rasterio and geopandas:  </description>
+      <description>Here&amp;rsquo;s a snippet showing how to rasterize a shapefile in python using rasterio and geopandas:  </description>
     </item>
     
     <item>
@@ -129,7 +124,7 @@ from os import path from wordcloud import WordCloud # Read the whole text.</desc
       <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2016/12/02/read-postgis-in-r/</guid>
-      <description> Working with Postgres / PostGIS more now and playing with reading and writing from R and Python. Here&amp;rsquo;s snippet showing read in of PostGIS in R:  </description>
+      <description>Working with Postgres / PostGIS more now and playing with reading and writing from R and Python. Here&amp;rsquo;s snippet showing read in of PostGIS in R:  </description>
     </item>
     
     <item>
@@ -138,7 +133,7 @@ from os import path from wordcloud import WordCloud # Read the whole text.</desc
       <pubDate>Tue, 20 Sep 2016 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2016/09/20/download-streamcat-data/</guid>
-      <description> Here&amp;rsquo;s an example code snippet using ftplib in python to download StreamCat data  </description>
+      <description>Here&amp;rsquo;s an example code snippet using ftplib in python to download StreamCat data  </description>
     </item>
     
     <item>
@@ -147,7 +142,7 @@ from os import path from wordcloud import WordCloud # Read the whole text.</desc
       <pubDate>Thu, 10 Mar 2016 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2016/03/10/r-lookup/</guid>
-      <description> Using match and indexing to create a lookup in R This code takes a lookup table and applies it to a data frame, updating only values for records that occur in the lookup table using indexing and match:
+      <description>Using match and indexing to create a lookup in R This code takes a lookup table and applies it to a data frame, updating only values for records that occur in the lookup table using indexing and match:
  </description>
     </item>
     
@@ -163,21 +158,12 @@ I noticed the maptools package in R had a SpatialLinesMidPoints function but cou
     </item>
     
     <item>
-      <title></title>
-      <link>https://mhweber.github.io/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>mweber36@gmail.com (Marc Weber)</author>
-      <guid>https://mhweber.github.io/1/01/01/</guid>
-      <description>Trying Out Bookdown and Publishing to GitHub Pages/*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */!function(a,b){&#34;object&#34;==typeof module&amp;&amp;&#34;object&#34;==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error(&#34;jQuery requires a window with a document&#34;);return b(a)}:b(a)}(&#34;undefined&#34;!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l=&#34;1.11.3&#34;,m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:&#34;&#34;,length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0a?b:0);return this.pushStack(c=0&amp;&amp;bc?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for(&#34;boolean&#34;==typeof g&amp;&amp;(j=g,g=arguments[h]||{},h++),&#34;object&#34;==typeof g||m.isFunction(g)||(g={}),h===i&amp;&amp;(g=this,h--);ih;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&amp;&amp;(j&amp;&amp;c&amp;&amp;(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&amp;&amp;m.isArray(a)?a:[]):f=a&amp;&amp;m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&amp;&amp;(g[d]=c));return g},m.extend({expando:&#34;jQuery&#34;+(l+Math.random()).replace(/\D/g,&#34;&#34;),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return&#34;function&#34;===m.type(a)},isArray:Array.isArray||function(a){return&#34;array&#34;===m.type(a)},isWindow:function(a){return null!=a&amp;&amp;a==a.window},isNumeric:function(a){return!m.isArray(a)&amp;&amp;a-parseFloat(a)+1=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||&#34;object&#34;!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&amp;&amp;!j.call(a,&#34;constructor&#34;)&amp;&amp;!j.call(a.constructor.prototype,&#34;isPrototypeOf&#34;))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.</description>
-    </item>
-    
-    <item>
       <title>About me</title>
       <link>https://mhweber.github.io/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/page/about/</guid>
-      <description>I’m a geographer working at the US EPA’s Western Ecology Division in Corvallis, OR. My work focuses on using spatial analysis in the realm of aquatic ecology, and particularly using spatial analysis in support of the EPA’s National Aquatic Resource Surveys. A particular focus of my work is geospatial analysis in R and Python, and partiularly the use of open source approaches in these two programming languages.</description>
+      <description>I’m a geographer working at the US EPA’s Pacific Ecological Systems Division in Corvallis, OR. My research interests include spatial analysis in R and Python, Geographic Information Science (GIS), aquatic ecology,remote sensing, open source science and environmental modeling. Much of my work focuses on using spatial analysis in support of the EPA’s National Aquatic Resource Surveys.</description>
     </item>
     
     <item>

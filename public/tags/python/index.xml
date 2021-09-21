@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Marc Weber</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>mweber36@gmail.com (Marc Weber)</managingEditor>
     <webMaster>mweber36@gmail.com (Marc Weber)</webMaster>
-    <lastBuildDate>Fri, 13 Oct 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://mhweber.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 13 Oct 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://mhweber.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Playing with Python Rasterstats</title>
       <link>https://mhweber.github.io/2017/10/13/playing-with-python-rasterstats/</link>
@@ -19,8 +15,8 @@
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2017/10/13/playing-with-python-rasterstats/</guid>
       <description>This is code to get PctAg and PctUrb using NLCD 2006 for US Counties. First we&amp;rsquo;ll import some libraries.
-import pandas as pd import numpy as np import geopandas as gp  Bring in US Counties using US Census counties shapefile
-counties = gp.GeoDataFrame.from_file(&#39;L:/Priv/CORFiles/Geospatial_Library/Data/RESOURCE/POLITICAL/BOUNDARIES/NATIONAL/Counties_Census_2010.shp&#39;) list(counties) counties.STATE_NAME.unique() counties = counties[(counties.STATE_NAME != &#39;Hawaii&#39;) &amp;amp; (counties.STATE_NAME != &#39;Alaska&#39;)] counties = counties[[&#39;FIPS&#39;,&#39;NAME&#39;,&#39;geometry&#39;]] counties.head()    .dataframe thead tr:only-child th { text-align: right; } .</description>
+import pandas as pd import numpy as np import geopandas as gp Bring in US Counties using US Census counties shapefile
+counties = gp.GeoDataFrame.from_file(&amp;#39;L:/Priv/CORFiles/Geospatial_Library/Data/RESOURCE/POLITICAL/BOUNDARIES/NATIONAL/Counties_Census_2010.shp&amp;#39;) list(counties) counties.STATE_NAME.unique() counties = counties[(counties.STATE_NAME != &amp;#39;Hawaii&amp;#39;) &amp;amp; (counties.STATE_NAME != &amp;#39;Alaska&amp;#39;)] counties = counties[[&amp;#39;FIPS&amp;#39;,&amp;#39;NAME&amp;#39;,&amp;#39;geometry&amp;#39;]] counties.head() .dataframe thead th {text-align: left;}.dataframe tbody tr th {vertical-align: top;} counties.</description>
     </item>
     
     <item>
@@ -30,7 +26,7 @@ counties = gp.GeoDataFrame.from_file(&#39;L:/Priv/CORFiles/Geospatial_Library/Da
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2017/07/14/geopandas-tutorial/</guid>
       <description>This is an implementation of the excellent PostGIS / geopandas tutorial here using NHDPlus WBD polygons for PNW. All the ideas and methods are from this tutorial, simply implementing with a different dataset and in Oregon.
-%matplotlib inline import os import json import psycopg2 import matplotlib.pyplot as plt # The two statemens below are used mainly to set up a plotting # default style that&#39;s better than the default from matplotlib import seaborn as sns plt.</description>
+%matplotlib inline import os import json import psycopg2 import matplotlib.pyplot as plt # The two statemens below are used mainly to set up a plotting # default style that&amp;#39;s better than the default from matplotlib import seaborn as sns plt.</description>
     </item>
     
     <item>
@@ -50,7 +46,7 @@ from os import path from wordcloud import WordCloud # Read the whole text.</desc
       <pubDate>Fri, 05 May 2017 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2017/05/05/test-georasters/</guid>
-      <description> Tried out the georasters python package for changing data types of rasters, recoding, merging, and writing out - very nice, handy python package!  </description>
+      <description>Tried out the georasters python package for changing data types of rasters, recoding, merging, and writing out - very nice, handy python package!  </description>
     </item>
     
     <item>
@@ -59,7 +55,7 @@ from os import path from wordcloud import WordCloud # Read the whole text.</desc
       <pubDate>Mon, 12 Dec 2016 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2016/12/12/rasterize-shapefiles-in-python-with-rasterio-and-geopandas/</guid>
-      <description> Here&amp;rsquo;s a snippet showing how to rasterize a shapefile in python using rasterio and geopandas:  </description>
+      <description>Here&amp;rsquo;s a snippet showing how to rasterize a shapefile in python using rasterio and geopandas:  </description>
     </item>
     
     <item>
@@ -68,7 +64,7 @@ from os import path from wordcloud import WordCloud # Read the whole text.</desc
       <pubDate>Tue, 20 Sep 2016 00:00:00 +0000</pubDate>
       <author>mweber36@gmail.com (Marc Weber)</author>
       <guid>https://mhweber.github.io/2016/09/20/download-streamcat-data/</guid>
-      <description> Here&amp;rsquo;s an example code snippet using ftplib in python to download StreamCat data  </description>
+      <description>Here&amp;rsquo;s an example code snippet using ftplib in python to download StreamCat data  </description>
     </item>
     
   </channel>
